@@ -3,3 +3,6 @@
 # Package Files #
 *.war
 *.ear
+
+# Ignore Path #
+project/HUT/WebRoot/WEB-INF/classes/*
