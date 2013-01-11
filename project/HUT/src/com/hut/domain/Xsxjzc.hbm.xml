@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-8-11 17:52:56 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.hut.domain.Xsxjzc" table="t_xsxjzc"  >
+        <id name="xh" type="java.lang.String">
+            <column name="xh" />
+        </id>
+        <property name="zczt" />
+        <property name="ksh" />
+        <property name="xm" />
+        <property name="xbm" />
+        <property name="csrq" />
+        <property name="sfzh" />
+        <property name="zzmmm" />
+        <property name="mzm" />
+        <property name="ejxkdm" />
+        <property name="xydm" />
+        <property name="bh" />
+        <property name="cc" />
+        <property name="xxxx" />
+        <property name="xz" />
+        <property name="rxrq" />
+        <property name="flag" />
+    </class>
+</hibernate-mapping>

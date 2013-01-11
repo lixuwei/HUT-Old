@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-8-11 17:52:56 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.hut.domain.Xslq" table="t_xslqb"  >
+        <id name="id" type="java.lang.Integer">
+            <generator class="native" />
+        </id>
+        <property name="ksbh" />
+        <property name="zjlx" />
+        <property name="zjhm" />
+        <property name="xm" />
+        <property name="csrq" />
+        <property name="mzm" />
+        <property name="xbm" />
+        <property name="hfm" />
+        <!-- <property name="lxdh" /> -->
+        <property name="xyjrm" />
+        <property name="zzmmm" />
+        <property name="hkszdm" />
+        <property name="hkszdxxdz" />
+        <property name="lqdwdm" />
+        <property name="lqdwmc" />
+        <property name="lqyxsm" />
+        <property name="lqzydm" />
+        <property name="lqzymc" />
+        <property name="bydwm" />
+        <property name="bydwmc" />
+        <property name="byzydm" />
+        <property name="byzymc" />
+        <property name="byny" />
+        <property name="xlm" />
+        <property name="xlzsbh" />
+        <property name="xxxsdm" />
+        <property name="xwm" />
+        <property name="xwzsbh" />
+        <property name="kslydm" />
+        <property name="ksfsdm" />
+        <property name="daszdw" />
+        <property name="daszdwdz" />
+        <property name="daszdwyzbm" />
+        <property name="lqlbm" />
+        <property name="zzllm" />
+        <property name="zzllmc" />
+        <property name="wgym" />
+        <property name="wgymc" />
+        <property name="ywk1m" />
+        <property name="ywk1mc" />
+        <property name="ywk2m" />
+        <property name="ywk2mc" />
+        <property name="zzllcj" />
+        <property name="wgycj" />
+        <property name="ywk1cj" />
+        <property name="ywk2cj" />
+        <property name="zf" />
+        <property name="fscj" />
+        <property name="js1mc" />
+        <property name="js1cj" />
+        <property name="js2mc" />
+        <property name="js2cj" />
+        <property name="dxwpdw" />
+        <property name="dxwpdwszdm" />
+        <property name="blzgnx" />
+        <property name="pg" />
+        <property name="zxjh" />
+        <property name="xszgzc" />
+        <property name="zcxh" />
+        <property name="szssm" />
+        <property name="bz" />
+        <property name="fscjqz" />
+        <property name="nf" />
+        <property name="flag" />
+        <property name="xslxdm" />
+    </class>
+</hibernate-mapping>

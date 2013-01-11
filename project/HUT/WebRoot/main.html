@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>xy.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<link rel="stylesheet" type="text/css" href="css/css/ext-all.css">
+<script type="text/javascript" src="script/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="script/ext-all.js"></script>
+<script type="text/javascript">
+    var username;
+	var roleid;
+	$.ajax({
+		type : "POST",
+		url : "UserAction!getUserBySession",
+		async : false,
+		success : function(data) {
+			if (data.user == null) {
+				window.location.href = "login.html";
+			} else {
+				username = data.user.userName;
+				$.ajax({
+					type : "POST",
+					url : "UserRoleAction!showRole",
+					data : "username=" + data.user.userName,
+					async : false,
+					success : function(data) {
+						roleid = data.items[0].roleId;
+					}
+				});
+			}
+		}
+	});
+</script>
+<script type="text/javascript" src="script/main.js"></script>
+</head>
+
+<body>
+	<iframe id='contentIframe' name='contentIframe'
+		style='height:100%;width:100%' frameborder="no"></iframe>
+</body>
+</html>
+
+

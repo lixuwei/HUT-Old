@@ -1,0 +1,60 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+
+<hibernate-configuration>
+<session-factory>
+
+	<property name="hibernate.connection.url">
+		<!-- jdbc:mysql://172.24.121.120:3306/hut?characterEncoding=UTF-8 -->
+		jdbc:mysql://localhost:3306/hut?characterEncoding=UTF-8
+	</property>
+	<property name="hibernate.connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="hibernate.connection.username">root</property>
+	<property name="hibernate.connection.password">root</property>
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQLDialect
+	</property>
+	<property name="hibernate.hbm2ddl.auto">update</property>
+	<property name="hibernate.show_sql">true</property>
+	<property name="connection.autocommit">true</property>
+
+	<mapping resource="com/hut/domain/User.hbm.xml" />
+	<mapping resource="com/hut/domain/Xslq.hbm.xml" />
+	<mapping resource="com/hut/domain/Xs.hbm.xml" />
+	<mapping resource="com/hut/domain/Xsxjzc.hbm.xml" />
+	<mapping resource="com/hut/domain/Xslb.hbm.xml" />
+	<mapping resource="com/hut/domain/Xsxl.hbm.xml" />
+	<mapping resource="com/hut/domain/Xy.hbm.xml" />
+	<mapping resource="com/hut/domain/Ejxk.hbm.xml" />
+	<mapping resource="com/hut/domain/Xyzy.hbm.xml" />
+	<mapping resource="com/hut/domain/Dsxx.hbm.xml" />
+	<mapping resource="com/hut/domain/Lslb.hbm.xml" />
+	<mapping resource="com/hut/domain/Mz.hbm.xml" />
+	<mapping resource="com/hut/domain/Teacher.hbm.xml" />
+	<mapping resource="com/hut/domain/Xw.hbm.xml" />
+	<mapping resource="com/hut/domain/Xx.hbm.xml" />
+	<mapping resource="com/hut/domain/Yzbzzy.hbm.xml" />
+	<mapping resource="com/hut/domain/Zc.hbm.xml" />
+	<mapping resource="com/hut/domain/Zjlb.hbm.xml" />
+	<mapping resource="com/hut/domain/Zzmm.hbm.xml" />
+	<mapping resource="com/hut/domain/UserRole.hbm.xml" />
+	<mapping resource="com/hut/domain/Role.hbm.xml" />
+	<mapping resource="com/hut/domain/Xl.hbm.xml" />
+	<mapping resource="com/hut/domain/RoleFunction.hbm.xml" />
+	<mapping resource="com/hut/domain/Function.hbm.xml" />
+	<mapping resource="com/hut/domain/Module.hbm.xml" />
+	<mapping resource="com/hut/domain/FunctionAction.hbm.xml" />
+	<mapping resource="com/hut/domain/RoleModule.hbm.xml" />
+	<mapping resource="com/hut/domain/Pycc.hbm.xml" />
+	<mapping resource="com/hut/domain/X.hbm.xml" />
+	<mapping resource="com/hut/domain/Xjzt.hbm.xml" />
+	<mapping resource="com/hut/domain/Xsds.hbm.xml" />
+	<mapping resource="com/hut/domain/Class.hbm.xml" />
+	<mapping resource="com/hut/domain/Jsxx.hbm.xml" />
+	<mapping resource="com/hut/domain/Lesson.hbm.xml" />
+	<mapping resource="com/hut/domain/Mid.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

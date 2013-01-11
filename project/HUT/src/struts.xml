@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts2" extends="json-default">
+		<action name="UserAction" class="UserAction">
+			<result name="show">/main.html</result>
+			<result name="success" type="json" />
+			<result name="error">/login.html</result>
+			<result name="jsonData" type="json" />
+		</action>
+
+		<action name="XslqAction" class="com.hut.action.XslqAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="XslbAction" class="com.hut.action.XslbAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="XsAction" class="com.hut.action.XsAction">
+			<result name="success" type="json" />
+		</action>
+
+		<!-- <action name="XyAction" class="com.hut.action.XyAction">
+			<result name="success" type="json" />
+		</action> -->
+
+		<action name="EjxkAction" class="com.hut.action.EjxkAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="XyzyAction" class="com.hut.action.XyzyAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="TeacherAction" class="com.hut.action.TeacherAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="UserRoleAction" class="com.hut.action.UserRoleAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="RoleFunctionAction" class="com.hut.action.RoleFunctionAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="RoleAction" class="com.hut.action.RoleAction">
+			<result name="success" type="json" />
+		</action>
+		
+		<action name="TreeAction" class="com.hut.action.TreeAction">
+			<result name="success" type="json" />
+		</action>
+
+		<action name="DaoShiAction" class="com.hut.action.DaoShiAction">
+			<result name="success" type="json"></result>
+		</action><!--
+		
+		<action name="DaoChuTeacherAction" class="daochuTeacherAction">
+			<param name="fileName">信息表.xls</param>
+			<result name="input" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${downFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		
+		-->
+		<!-- <action name="DaoChuTeacherAction" class="com.hut.action.DaoChuTeacherAction">
+	   	 	<param name="inputPath">${getFilePath}</param>
+	   	 	<param name="fileName">信息表.xls</param>
+	   	 	<result name="input" type="stream">
+	   	 		<param name="contentType">application/vnd.ms-excel</param> 
+				<param name="inputName">inputStream</param> 
+				<param name="contentDisposition">attachment;filename="${downFileName}"</param> 
+				<param name="bufferSize">4096</param>
+	   	 	</result>
+	   	 </action> -->
+		
+		<action name="ClassAction" class="com.hut.action.ClassAction">
+			<result name="success" type="json" />
+		</action>
+		
+		<action name="LessonAction" class="com.hut.action.LessonAction">
+			<result name="success" type="json" />
+		</action>
+		
+		<action name="JsxxAction" class="com.hut.action.JsxxAction">
+			<result name="success" type="json" />
+		</action>
+		
+		<action name="MidAction" class="com.hut.action.MidAction">
+			<result name="success" type="json" />
+		</action>
+	</package>
+
+	<!--受权限控制的Action请求配置 -->
+	<package name="authority" extends="json-default">
+		<interceptors>
+			<!--定义一个名为authority的拦截器 -->
+			<interceptor class="com.hut.Interceptor.AuthorityInterceptor"
+				name="authority" />
+			<!--定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<!--配置自定义的拦截器 -->
+				<interceptor-ref name="authority" />
+				<!--配置内建默认拦截器 -->
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="mydefault" />
+		<!--定义全局Result -->
+		<global-results>
+			<result name="login">/login.html</result>
+			<!-- 没有权限 -->
+			<result name="noAuthority">/error.html</result>
+		</global-results>
+
+		<action name="XyAction" class="com.hut.action.XyAction">
+			<result name="success" type="json" />
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-8-11 17:52:56 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.hut.domain.Xs" table="t_xs">
+        <id name="xh" type="java.lang.String">
+            <column name="xh" />
+        </id>
+        <property name="xm" />
+        <property name="xmpy" />
+        <property name="cym" />
+        <property name="zplj" />
+        <property name="zjlx" />
+        <property name="xbm" />
+        <property name="zjhm" />
+        <property name="mzm" />
+        <property name="jg" />
+        <property name="csrq" />
+        <property name="hfm" />
+        <property name="zzmmm" />
+        <property name="xxfs" />
+        <property name="xslb" />
+        <property name="xydm" />
+        <property name="xdm" />
+        <property name="pyccdm" />
+        <property name="ejxkdm" />
+        <property name="hdxlfsdm" />
+        <property name="xfzqk" />
+        <property name="xz1" />
+        <property name="xz2" />
+        <property name="rxny" />
+        <property name="nj" />
+        <property name="rxxq" />
+        <property name="yjxksq" />
+        <property name="bjdm" />
+        <property name="xjztdm" />
+        <property name="xjydqk" />
+        <property name="ksdm" />
+        <property name="zcqk" />
+        <property name="zcrq" />
+        <property name="yhkh" />
+        <property name="jhsh" />
+        <property name="jsxysm" />
+        <property name="bz" />
+        <property name="stzk" />
+    </class>
+</hibernate-mapping>

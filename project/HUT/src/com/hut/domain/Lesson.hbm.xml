@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-8-11 17:52:56 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.hut.domain.Lesson" table="t_lesson">
+        <id name="kcdm" type="java.lang.Integer">
+            <column name="kcdm" />
+        </id>
+        <property name="kcmc" />
+        <property name="kclb" />
+        <property name="xf" />
+        <property name="xs" />
+        <property name="kkxq" />
+        <property name="kkdw" />
+        <property name="flag" />
+        <property name="khfs" />
+        <property name="syzyjfx" />
+        <property name="state" />
+        <property name="xueqi" />
+        <property name="year" />
+        <property name="bz" />
+    </class>
+</hibernate-mapping>

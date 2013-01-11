@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	
+	<bean id="userService" class="com.hut.service.impl.UserServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xslqService" class="com.hut.service.impl.XslqServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xsService" class="com.hut.service.impl.XsServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xslbService" class="com.hut.service.impl.XslbServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xsxjzcService" class="com.hut.service.impl.XsxjzcServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xsxlService" class="com.hut.service.impl.XsxlServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xyService" class="com.hut.service.impl.XyServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="ejxkService" class="com.hut.service.impl.EjxkServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="xyzyService" class="com.hut.service.impl.XyzyServiceImpl">
+	    <property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="teacherService" class="com.hut.service.impl.TeacherServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="userRoleService" class="com.hut.service.impl.UserRoleServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="roleFunctionService" class="com.hut.service.impl.RoleFunctionServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="roleService" class="com.hut.service.impl.RoleServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="roleModuleService" class="com.hut.service.impl.RoleModuleServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="functionService" class="com.hut.service.impl.FunctionServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="moduleService" class="com.hut.service.impl.ModuleServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="functionActionService" class="com.hut.service.impl.FunctionActionServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="pyccService" class="com.hut.service.impl.PyccServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="xjztService" class="com.hut.service.impl.XjztServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="xService" class="com.hut.service.impl.XServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="xsdsService" class="com.hut.service.impl.XsdsServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="mzService" class="com.hut.service.impl.MzServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="yzbzzyService" class="com.hut.service.impl.YzbyzyServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="xlService" class="com.hut.service.impl.XlServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="xwService" class="com.hut.service.impl.XwServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="zcService" class="com.hut.service.impl.ZcServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="zzmmService" class="com.hut.service.impl.ZzmmServiceImpl">
+	 	<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="zjlbService" class="com.hut.service.impl.ZjlbServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="dsxxService" class="com.hut.service.impl.DsxxServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="xxService" class="com.hut.service.impl.XxServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="classService" class="com.hut.service.impl.ClassServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="lessonService" class="com.hut.service.impl.LessonServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="midService" class="com.hut.service.impl.MidServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="jsxxService" class="com.hut.service.impl.JsxxServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+
+</beans>
