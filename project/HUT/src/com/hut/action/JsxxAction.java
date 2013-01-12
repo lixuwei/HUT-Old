@@ -64,19 +64,11 @@ public class JsxxAction extends ActionSupport {
 	public String showAllByPage() {
 		this.results = jsxxService.rowCount(new Jsxx(), "");
 		items = jsxxService.pagination(limit, page, "from Jsxx t " + "");
-		// JSONArray json = JSONArray.fromObject(items);
-		// JSONObject json1 = JSONObject.fromObject(json);
-		// json1.put("results", results);
-		/*
-		 * try { ServletActionContext.getResponse().getWriter().print(json); }
-		 * catch (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
 		return SUCCESS;
 	}
 
 	// 得到所有的教室
-	public String getAllJsxxs() {
+	public String showAllJsxxs() {
 		List<JsxxVO> jsxxVoList = new ArrayList<JsxxVO>();
 		List<Jsxx> jsxxList = jsxxService.getAllJsxxs();
 		for (Jsxx jsxx : jsxxList) {
@@ -92,7 +84,7 @@ public class JsxxAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return SUCCESS;
 	}
 
 	@JSON(serialize = false)

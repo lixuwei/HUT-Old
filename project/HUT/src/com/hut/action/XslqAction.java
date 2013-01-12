@@ -87,10 +87,10 @@ public class XslqAction extends ActionSupport{
 				xslq.setByzydm(arrayList.get(19));
 				xslq.setByzymc(arrayList.get(20));
 				xslq.setByny(arrayList.get(21));
-				xslq.setXlm(Integer.parseInt(arrayList.get(22)));
+				xslq.setXlm(arrayList.get(22));
 				xslq.setXlzsbh(arrayList.get(23));
 				xslq.setXxxsdm(Integer.parseInt(arrayList.get(24)));
-				xslq.setXwm(Integer.parseInt(arrayList.get(25)));
+				xslq.setXwm(arrayList.get(25));
 				xslq.setXwzsbh(arrayList.get(26));
 				xslq.setKslydm(Integer.parseInt(arrayList.get(27)));
 				xslq.setKsfsdm(Integer.parseInt(arrayList.get(28)));
@@ -164,7 +164,7 @@ public class XslqAction extends ActionSupport{
 				xslq.setLqyxsm(arrayList.get(7));
 				xslq.setLqzydm(arrayList.get(8));
 				xslq.setLqzymc(arrayList.get(9));
-				xslq.setXwm(Integer.parseInt(arrayList.get(10)));
+				xslq.setXwm(arrayList.get(10));
 				xslq.setNf(year);
 				xslq.setXslxdm(xslx);
 				
@@ -295,6 +295,7 @@ public class XslqAction extends ActionSupport{
 						xs.setXydm(xslq.getLqyxsm());
 						xs.setXdm(null);
 						xs.setPyccdm(null);
+						xs.setLqlbm(xslq.getLqlbm());
 						xs.setEjxkdm(xslq.getLqzydm());
 						xs.setHdxlfsdm(null);
 						xs.setXz1(3);
@@ -322,6 +323,9 @@ public class XslqAction extends ActionSupport{
 						xsxl.setYxdm(xslq.getLqyxsm());
 						xsxl.setEjxkdm(xslq.getLqzydm());
 						xsxl.setXxxsdm(xslq.getXxxsdm());
+						xsxl.setPyccdm(null);
+						xsxl.setXwdm(xslq.getXwm());
+						xsxl.setXldm(xslq.getXlm());
 					} else if(temp.getXslb() != 4) {
 						// 如果是进修生.....
 						// 先添加这个数据  并将以前数据删除 同时将成绩表的学号改为这个学号

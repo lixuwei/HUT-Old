@@ -20,6 +20,7 @@ public class Xs {
 	private String xydm;
 	private String xdm;
 	private String pyccdm;
+	private int lqlbm;
 	private String ejxkdm;
 	private String hdxlfsdm;
 	private int xfzqk;
@@ -267,6 +268,12 @@ public class Xs {
 	}
 	public void setStzk(String stzk) {
 		this.stzk = stzk;
+	}
+	public int getLqlbm() {
+		return lqlbm;
+	}
+	public void setLqlbm(int lqlbm) {
+		this.lqlbm = lqlbm;
 	}
 	
 }

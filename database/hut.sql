@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/10 20:06:45                           */
+/* Created on:     2013/1/12 21:24:41                           */
 /*==============================================================*/
 
 
@@ -176,7 +176,7 @@ alter table t_class comment '班级表';
 /*==============================================================*/
 create table t_dqjg
 (
-   dm                   int not null comment '党群机构代码',
+   dm                   varchar(5) not null comment '党群机构代码',
    mc                   varchar(20) comment '党群机构名称',
    primary key (dm)
 );
@@ -188,8 +188,8 @@ alter table t_dqjg comment '党群机构表';
 /*==============================================================*/
 create table t_dqjgz
 (
-   dm                   int not null comment '党群机构子代码',
-   pdm                  int comment '党群机构父代码',
+   dm                   varchar(10) not null comment '党群机构子代码',
+   pdm                  varchar(5) comment '党群机构父代码',
    mc                   varchar(20) comment '党群机构子名称',
    primary key (dm)
 );
@@ -815,6 +815,7 @@ create table t_xs
    xydm                 varchar(5) comment '学院代码',
    xdm                  varchar(10) comment '系代码',
    pyccdm               varchar(10) comment '培养层次代码',
+   lqlbm                int comment '录取类别码 11-非定向，12-定向，23-委培，24-自筹',
    ejxkdm               varchar(10) comment '二级学科代码',
    hdxlfsdm             varchar(10) comment '获得学历方式代码',
    xfzqk                int comment '学分制情况 1是 0否',
@@ -926,10 +927,10 @@ create table t_xslqb
    byzydm               varchar(10) comment '毕业专业代码',
    byzymc               varchar(20) comment '毕业专业名称',
    byny                 varchar(10) comment '毕业年月 格式:19921116',
-   xlm                  int comment '学历代码',
+   xlm                  varchar(10) comment '学历代码',
    xlzsbh               varchar(20) comment '学历证书编号',
    xxxsdm               int comment '学习形式代码',
-   xwm                  int comment '学位代码',
+   xwm                  varchar(10) comment '学位代码',
    xwzsbh               varchar(20) comment '学位证书编号',
    kslydm               int comment '考生来源代码',
    ksfsdm               int comment '考试方式代码',
@@ -1054,7 +1055,7 @@ create table t_xsxjzc
    ejxkdm               varchar(10) comment '二级学科代码',
    xydm                 varchar(5) comment '学院代码',
    bh                   int comment '班号',
-   cc                   varchar(12) comment '层次',
+   cc                   varchar(12) comment '培养层次',
    xxxx                 varchar(10) comment '学习形式',
    xz                   varchar(3) comment '学制',
    rxrq                 varchar(10) comment '入学日期 格式20120901',
@@ -1077,7 +1078,9 @@ create table t_xsxl
    yxdm                 varchar(5) comment '院系代码',
    ejxkdm               varchar(10) comment '二级学科代码',
    xxxsdm               int comment '学习形式代码',
-   cc                   varchar(10) comment '层次',
+   pyccdm               varchar(10) comment '培养层次代码',
+   xwdm                 varchar(10) comment '学位代码',
+   xldm                 varchar(10) comment '学历代码',
    rxrq                 varchar(10) comment '入学日期',
    byrq                 varchar(10) comment '毕业日期',
    xz                   int comment '学制',
@@ -1176,7 +1179,7 @@ alter table t_xyzy comment '学院专业关系表';
 /*==============================================================*/
 create table t_xzjg
 (
-   dm                   int not null comment '行政机构代码',
+   dm                   varchar(5) not null comment '行政机构代码',
    mc                   varchar(10) comment '行政机构名称',
    primary key (dm)
 );
@@ -1188,8 +1191,8 @@ alter table t_xzjg comment '行政机构表';
 /*==============================================================*/
 create table t_xzjgz
 (
-   dm                   int not null comment '行政机构子代码',
-   pdm                  int comment '行政机构父代码',
+   dm                   varchar(10) not null comment '行政机构子代码',
+   pdm                  varchar(5) comment '行政机构父代码',
    mc                   varchar(10) comment '行政机构子名称',
    primary key (dm)
 );
@@ -1359,7 +1362,7 @@ alter table zjlx comment '证件类型表';
 alter table t_cbxszzqk add constraint FK_cbxszzqk_lsbh_teacher_lsbh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
 
-alter table t_dqjgz add constraint FK_dqjgz_pdm_dqjg_dm foreign key (dm)
+alter table t_dqjgz add constraint FK_dqjgz_pdm_dqjg_dm foreign key (pdm)
       references t_dqjg (dm) on delete restrict on update restrict;
 
 alter table t_dsxx add constraint FK_dsxx_dexkejxkm_yzbzzy_zydm foreign key (dexkejxkm)
@@ -1575,7 +1578,7 @@ alter table t_xyzy add constraint FK_xyzy_xydm_ejxk_ejxkdm foreign key (zydm)
 alter table t_xyzy add constraint FK_xyzy_xydm_xy_dm foreign key (xydm)
       references t_xy (dm) on delete restrict on update restrict;
 
-alter table t_xzjgz add constraint FK_xzjgz_pdm_xzjg_dm foreign key (dm)
+alter table t_xzjgz add constraint FK_xzjgz_pdm_xzjg_dm foreign key (pdm)
       references t_xzjg (dm) on delete restrict on update restrict;
 
 alter table t_yzbm add constraint FK_yzbm_ssdm_xzqhsx_dm foreign key (ssdm)

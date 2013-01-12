@@ -65,6 +65,7 @@ INSERT INTO `t_function` VALUES ('6', '3', '导入老师信息', './jcxx/drlsxx.
 INSERT INTO `t_function` VALUES ('7', '4', '密码修改', './grxx/xgmm.html');
 INSERT INTO `t_function` VALUES ('8', '4', '个人信息查看', './grxx/grxxcx.html');
 INSERT INTO `t_function` VALUES ('9', '4', '公共课排课', './assets/ggkpk.html');
+INSERT INTO `t_function` VALUES ('10', '2', '导入教室信息', './jcxx/drjsxx.html');
 
 
 -- ----------------------------
@@ -80,23 +81,30 @@ INSERT INTO `t_role_function` VALUES ('2', '5');
 INSERT INTO `t_role_function` VALUES ('2', '6');
 INSERT INTO `t_role_function` VALUES ('2', '7');
 INSERT INTO `t_role_function` VALUES ('2', '9');
+INSERT INTO `t_role_function` VALUES ('2', '10');
 
 
 -- ----------------------------
--- Records of t_xl		test
+-- Records of t_xl
 -- ----------------------------
-INSERT INTO `t_xl` VALUES ('1', '博士后');
-INSERT INTO `t_xl` VALUES ('2', '博士');
-INSERT INTO `t_xl` VALUES ('3', '硕士');
-
-
+INSERT INTO `t_xl` VALUES ('1', '研究生');
+INSERT INTO `t_xl` VALUES ('2', '本科');
+INSERT INTO `t_xl` VALUES ('3', '专科');
 
 -- ----------------------------
--- Records of t_xw     test
+-- Records of t_pycc
 -- ----------------------------
-INSERT INTO `t_xw` VALUES ('01', '博士学位');
-INSERT INTO `t_xw` VALUES ('02', '博士后学位');
+INSERT INTO `t_pycc` VALUES ('1', '博士研究生');
+INSERT INTO `t_pycc` VALUES ('2', '硕士研究生');
+INSERT INTO `t_pycc` VALUES ('3', '本科');
+INSERT INTO `t_pycc` VALUES ('4', '专科');
 
+-- ----------------------------
+-- Records of t_xw
+-- ----------------------------
+INSERT INTO `t_xw` VALUES ('01', '博士');
+INSERT INTO `t_xw` VALUES ('02', '硕士');
+INSERT INTO `t_xw` VALUES ('02', '学士');
 
 -- ----------------------------
 -- Records of t_xx     test

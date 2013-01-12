@@ -5,7 +5,6 @@
 <Workspace>
 	<Local Expanded="Yes">
 		<Model Expanded="Yes" ID="{04594CE8-377A-4C63-B125-BEF5234459E1}" Name="HUT" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="HUT.pdm"/>
-		<Model Expanded="Yes" ID="{C4BEBED9-AC1D-4153-9BD4-3C4223553D49}" Loaded="No" Name="dangan" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="file:///C|/Users/Michael/Desktop/dangan.pdm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

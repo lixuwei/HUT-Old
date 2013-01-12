@@ -10,7 +10,9 @@ public class Xsxl {
 	private String yxdm;
 	private String ejxkdm;
 	private int xxxsdm;
-	private String cc;
+	private String pyccdm;
+	private String xldm;
+	private String xwdm;
 	private String rxrq;
 	private String byrq;
 	private int xz;
@@ -62,12 +64,6 @@ public class Xsxl {
 	}
 	public void setXxxsdm(int xxxsdm) {
 		this.xxxsdm = xxxsdm;
-	}
-	public String getCc() {
-		return cc;
-	}
-	public void setCc(String cc) {
-		this.cc = cc;
 	}
 	public String getRxrq() {
 		return rxrq;
@@ -134,6 +130,24 @@ public class Xsxl {
 	}
 	public void setEjxkdm(String ejxkdm) {
 		this.ejxkdm = ejxkdm;
+	}
+	public String getPyccdm() {
+		return pyccdm;
+	}
+	public void setPyccdm(String pyccdm) {
+		this.pyccdm = pyccdm;
+	}
+	public String getXldm() {
+		return xldm;
+	}
+	public void setXldm(String xldm) {
+		this.xldm = xldm;
+	}
+	public String getXwdm() {
+		return xwdm;
+	}
+	public void setXwdm(String xwdm) {
+		this.xwdm = xwdm;
 	}
 	
 }

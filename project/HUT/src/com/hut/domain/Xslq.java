@@ -29,10 +29,10 @@ public class Xslq {
 	private String byzydm;
 	private String byzymc;
 	private String byny;
-	private int xlm;
+	private String xlm;
 	private String xlzsbh;
 	private int xxxsdm;
-	private int xwm;
+	private String xwm;
 	private String xwzsbh;
 	private int kslydm;
 	private int ksfsdm;
@@ -215,12 +215,6 @@ public class Xslq {
 	public void setByny(String byny) {
 		this.byny = byny;
 	}
-	public int getXlm() {
-		return xlm;
-	}
-	public void setXlm(int xlm) {
-		this.xlm = xlm;
-	}
 	public String getXlzsbh() {
 		return xlzsbh;
 	}
@@ -232,12 +226,6 @@ public class Xslq {
 	}
 	public void setXxxsdm(int xxxsdm) {
 		this.xxxsdm = xxxsdm;
-	}
-	public int getXwm() {
-		return xwm;
-	}
-	public void setXwm(int xwm) {
-		this.xwm = xwm;
 	}
 	public String getXwzsbh() {
 		return xwzsbh;
@@ -466,6 +454,18 @@ public class Xslq {
 	}
 	public void setXslxdm(int xslxdm) {
 		this.xslxdm = xslxdm;
+	}
+	public String getXlm() {
+		return xlm;
+	}
+	public void setXlm(String xlm) {
+		this.xlm = xlm;
+	}
+	public String getXwm() {
+		return xwm;
+	}
+	public void setXwm(String xwm) {
+		this.xwm = xwm;
 	}
 	
 }

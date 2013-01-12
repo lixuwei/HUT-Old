@@ -103,7 +103,7 @@ Ext.onReady(function(){
 			model:'classRoom',
 			proxy:{
 				type: 'ajax',
-				url:'JsxxAction!getAllJsxxs',
+				url:'JsxxAction!showAllJsxxs',
 		        reader:{
 		        	type:'json'
 		        }

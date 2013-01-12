@@ -14,7 +14,9 @@
         <property name="yxdm" />
         <property name="ejxkdm" />
         <property name="xxxsdm" />
-        <property name="cc" />
+        <property name="pyccdm" />
+        <property name="xldm" />
+        <property name="xwdm" />
         <property name="rxrq" />
         <property name="byrq" />
         <property name="xz" />

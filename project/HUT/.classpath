@@ -45,7 +45,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/httpcore-4.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/httpcore-nio-4.0.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/httpmime-4.1.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/IKAnalyzer3.2.8.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/imap.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jaas.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jacc-1_0-fr.jar"/>
@@ -107,6 +106,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xerces-2.6.2.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xml-apis.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlbeans-2.3.0.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.2.1.1.jar" sourcepath="C:/Documents and Settings/Administrator/.m2/repository/org/apache/struts/xwork/xwork-core/2.2.1.1/xwork-core-2.2.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.2.1.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

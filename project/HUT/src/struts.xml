@@ -13,51 +13,51 @@
 			<result name="jsonData" type="json" />
 		</action>
 
-		<action name="XslqAction" class="com.hut.action.XslqAction">
+		<action name="XslqAction" class="XslqAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="XslbAction" class="com.hut.action.XslbAction">
+		<action name="XslbAction" class="XslbAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="XsAction" class="com.hut.action.XsAction">
+		<action name="XsAction" class="XsAction">
 			<result name="success" type="json" />
 		</action>
 
-		<!-- <action name="XyAction" class="com.hut.action.XyAction">
+		<!-- <action name="XyAction" class="XyAction">
 			<result name="success" type="json" />
 		</action> -->
 
-		<action name="EjxkAction" class="com.hut.action.EjxkAction">
+		<action name="EjxkAction" class="EjxkAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="XyzyAction" class="com.hut.action.XyzyAction">
+		<action name="XyzyAction" class="XyzyAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="TeacherAction" class="com.hut.action.TeacherAction">
+		<action name="TeacherAction" class="TeacherAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="UserRoleAction" class="com.hut.action.UserRoleAction">
+		<action name="UserRoleAction" class="UserRoleAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="RoleFunctionAction" class="com.hut.action.RoleFunctionAction">
+		<action name="RoleFunctionAction" class="RoleFunctionAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="RoleAction" class="com.hut.action.RoleAction">
+		<action name="RoleAction" class="RoleAction">
 			<result name="success" type="json" />
 		</action>
 		
-		<action name="TreeAction" class="com.hut.action.TreeAction">
+		<action name="TreeAction" class="TreeAction">
 			<result name="success" type="json" />
 		</action>
 
-		<action name="DaoShiAction" class="com.hut.action.DaoShiAction">
+		<action name="DaoShiAction" class="DaoShiAction">
 			<result name="success" type="json"></result>
 		</action><!--
 		
@@ -72,7 +72,7 @@
 		</action>
 		
 		-->
-		<!-- <action name="DaoChuTeacherAction" class="com.hut.action.DaoChuTeacherAction">
+		<!-- <action name="DaoChuTeacherAction" class="DaoChuTeacherAction">
 	   	 	<param name="inputPath">${getFilePath}</param>
 	   	 	<param name="fileName">信息表.xls</param>
 	   	 	<result name="input" type="stream">
@@ -83,19 +83,19 @@
 	   	 	</result>
 	   	 </action> -->
 		
-		<action name="ClassAction" class="com.hut.action.ClassAction">
+		<action name="ClassAction" class="ClassAction">
 			<result name="success" type="json" />
 		</action>
 		
-		<action name="LessonAction" class="com.hut.action.LessonAction">
+		<action name="LessonAction" class="LessonAction">
 			<result name="success" type="json" />
 		</action>
 		
-		<action name="JsxxAction" class="com.hut.action.JsxxAction">
+		<action name="JsxxAction" class="JsxxAction">
 			<result name="success" type="json" />
 		</action>
 		
-		<action name="MidAction" class="com.hut.action.MidAction">
+		<action name="MidAction" class="MidAction">
 			<result name="success" type="json" />
 		</action>
 	</package>
@@ -123,7 +123,7 @@
 			<result name="noAuthority">/error.html</result>
 		</global-results>
 
-		<action name="XyAction" class="com.hut.action.XyAction">
+		<action name="XyAction" class="XyAction">
 			<result name="success" type="json" />
 		</action>
 	</package>

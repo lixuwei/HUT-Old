@@ -72,24 +72,24 @@
 		<property name="userRoleService" ref="userRoleService"></property>
 	</bean>
 	
-	<bean id="userRoleAction" class="com.hut.action.UserRoleAction" scope="prototype">
+	<bean id="UserRoleAction" class="com.hut.action.UserRoleAction" scope="prototype">
 		<property name="userRoleService" ref="userRoleService"></property>
 		<property name="roleService" ref="roleService"></property>
 	</bean>
 	
-	<bean id="roleFunctionAction" class="com.hut.action.RoleFunctionAction" scope="prototype">
+	<bean id="RoleFunctionAction" class="com.hut.action.RoleFunctionAction" scope="prototype">
 		<property name="roleFunctionService" ref="roleFunctionService"></property>
 	</bean>
 	
-	<bean id="roleAction" class="com.hut.action.RoleAction" scope="prototype">
+	<bean id="RoleAction" class="com.hut.action.RoleAction" scope="prototype">
 		<property name="roleService" ref="roleService"></property>
 	</bean>
 	
-	<bean id="roleModuleAction" class="com.hut.action.RoleModuleAction" scope="prototype">
+	<bean id="RoleModuleAction" class="com.hut.action.RoleModuleAction" scope="prototype">
 		<property name="roleModuleService" ref="roleModuleService"></property>
 	</bean>
 	
-	<bean id="treeNode" class="com.hut.action.TreeAction" scope="prototype">
+	<bean id="TreeAction" class="com.hut.action.TreeAction" scope="prototype">
 		<property name="roleFunctionService" ref="roleFunctionService"></property>
 		<property name="roleModuleService" ref="roleModuleService"></property>
 		<property name="moduleService" ref="moduleService"></property>
@@ -98,7 +98,7 @@
 	</bean>
 
 	<bean id="ClassAction" class="com.hut.action.ClassAction" scope="prototype">
-		
+		<property name="classService" ref="classService"></property>
 	</bean>
 	
 	<bean id="LessonAction" class="com.hut.action.LessonAction" scope="prototype">
@@ -114,7 +114,7 @@
 	</bean>
 	
 	<bean id="JsxxAction" class="com.hut.action.JsxxAction" scope="prototype">
-		<!-- <property name="jsxxService" ref="jsxxService"></property> -->
+		<property name="jsxxService" ref="jsxxService"></property>
 	</bean>
 </beans>
 
