@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/12 21:24:41                           */
+/* Created on:     2013/1/13 20:24:39                           */
 /*==============================================================*/
 
 
@@ -52,6 +52,8 @@ drop table if exists t_module;
 
 drop table if exists t_mz;
 
+drop table if exists t_pkxx;
+
 drop table if exists t_pycc;
 
 drop table if exists t_pyhj;
@@ -61,6 +63,8 @@ drop table if exists t_role;
 drop table if exists t_role_function;
 
 drop table if exists t_role_module;
+
+drop table if exists t_shjg;
 
 drop table if exists t_teacher;
 
@@ -361,13 +365,14 @@ alter table t_jxqkb comment '教学情况表(不是老师个人教学课表,是�
 /*==============================================================*/
 create table t_kccj
 (
+   id                   int not null auto_increment comment 'Id ',
    xh                   varchar(20) not null comment '学号',
    kcdm                 int not null comment '课程代码',
    lsbh                 varchar(20) not null comment '老师表的老师编号',
-   jxljshdm             int comment '教学楼教室号',
+   jsxxId               int comment '教室信息Id',
    zxcj                 float comment '最新成绩(当存在补考或者重修情况的时候,最新考试的分数存这,以前的分数存到zqcj中去)',
    zqcj                 float comment '之前成绩(当存在补考或者重修情况的时候,最新考试的分数zxcj,以前的分数存到这里)',
-   primary key (xh, kcdm, lsbh)
+   primary key (id)
 );
 
 alter table t_kccj comment '学生课程成绩表(附加学生成绩)';
@@ -524,6 +529,21 @@ create table t_mz
 alter table t_mz comment '民族表';
 
 /*==============================================================*/
+/* Table: t_pkxx                                                */
+/*==============================================================*/
+create table t_pkxx
+(
+   id                   int not null auto_increment comment '排课表Id',
+   kcdm                 int comment '课程代码',
+   lsbh                 varchar(20) comment '老师编号',
+   jsdm                 int comment '教室代码',
+   sksj                 varchar(100) comment '上课时间',
+   primary key (id)
+);
+
+alter table t_pkxx comment '排课信息';
+
+/*==============================================================*/
 /* Table: t_pycc                                                */
 /*==============================================================*/
 create table t_pycc
@@ -646,6 +666,18 @@ create table t_role_module
 alter table t_role_module comment '角色模块表';
 
 /*==============================================================*/
+/* Table: t_shjg                                                */
+/*==============================================================*/
+create table t_shjg
+(
+   id                   int not null comment 'Id',
+   mc                   varchar(50) comment '社会机构名称',
+   primary key (id)
+);
+
+alter table t_shjg comment '社会机构表';
+
+/*==============================================================*/
 /* Table: t_teacher                                             */
 /*==============================================================*/
 create table t_teacher
@@ -658,7 +690,8 @@ create table t_teacher
    mzdm                 varchar(5) comment '民族代码',
    csrq                 varchar(10) comment '出生日期 格式:19921116',
    zzmmdm               varchar(5) comment '政治面貌代码',
-   xydm                 varchar(5) comment '学院代码',
+   xydm                 varchar(5) comment '学院代码 党群机构代码 行政机构代码 社会机构代码',
+   flag                 int comment '1学院 2党群 3机构 4社会机构',
    xdm                  varchar(10) comment '系/所代码',
    lxdh                 varchar(20) comment '联系电话',
    email                varchar(20) comment '电子邮箱',
@@ -1404,7 +1437,7 @@ alter table t_jxqkb add constraint FK_jxqk_lsbh_teacher_lsbh foreign key (lsbh)
 alter table t_kccj add constraint FK_kc_kcdm_lesson_kcdm foreign key (kcdm)
       references t_lesson (kcdm) on delete restrict on update restrict;
 
-alter table t_kccj add constraint FK_kccj_jxljshdm_jxljsh_dm foreign key (jxljshdm)
+alter table t_kccj add constraint FK_kccj_jxljshdm_jxljsh_dm foreign key (jsxxId)
       references t_jsxx (id) on delete restrict on update restrict;
 
 alter table t_kccj add constraint FK_kccj_xh_xs_xh foreign key (xh)
@@ -1466,9 +1499,6 @@ alter table t_teacher add constraint FK_teacher_xldm_xl_dm foreign key (xldm)
 
 alter table t_teacher add constraint FK_teacher_xwdm_xw_dm foreign key (xwdm)
       references t_xw (dm) on delete restrict on update restrict;
-
-alter table t_teacher add constraint FK_teacher_xydm_xy_dm foreign key (xydm)
-      references t_xy (dm) on delete restrict on update restrict;
 
 alter table t_teacher add constraint FK_teacher_zcdm_zc_dm foreign key (zcdm)
       references t_zc (dm) on delete restrict on update restrict;

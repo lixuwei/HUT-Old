@@ -391,3 +391,56 @@ INSERT INTO `t_xyzy` VALUES ('111', '005', '085201');
 INSERT INTO `t_xyzy` VALUES ('112', '006', '085204');
 INSERT INTO `t_xyzy` VALUES ('113', '007', '085207');
 
+
+-- ----------------------------
+-- Records of t_dqjg
+-- ----------------------------
+INSERT INTO `t_dqjg` VALUES ('101', '纪律检查委员会');
+INSERT INTO `t_dqjg` VALUES ('102', '党委办公室');
+INSERT INTO `t_dqjg` VALUES ('103', '组织部');
+INSERT INTO `t_dqjg` VALUES ('104', '宣传部');
+INSERT INTO `t_dqjg` VALUES ('105', '统战部');
+INSERT INTO `t_dqjg` VALUES ('106', '师范校区党工委');
+INSERT INTO `t_dqjg` VALUES ('107', '党总支（分党委、直属支部）');
+INSERT INTO `t_dqjg` VALUES ('108', '学生工作部');
+INSERT INTO `t_dqjg` VALUES ('109', '研究生工作部');
+INSERT INTO `t_dqjg` VALUES ('110', '武装部');
+INSERT INTO `t_dqjg` VALUES ('111', '团委');
+INSERT INTO `t_dqjg` VALUES ('112', '工会');
+
+
+-- ----------------------------
+-- Records of t_xzjg
+-- ----------------------------
+INSERT INTO `t_xzjg` VALUES ('201', '校长办公室');
+INSERT INTO `t_xzjg` VALUES ('202', '计划财务处');
+INSERT INTO `t_xzjg` VALUES ('203', '人事处');
+INSERT INTO `t_xzjg` VALUES ('204', '发展规划处');
+INSERT INTO `t_xzjg` VALUES ('205', '教务处');
+INSERT INTO `t_xzjg` VALUES ('206', '学生处');
+INSERT INTO `t_xzjg` VALUES ('207', '教学评估处');
+INSERT INTO `t_xzjg` VALUES ('208', '科技处');
+INSERT INTO `t_xzjg` VALUES ('209', '社科处');
+INSERT INTO `t_xzjg` VALUES ('210', '产学研处');
+INSERT INTO `t_xzjg` VALUES ('211', '师范校区管委会');
+INSERT INTO `t_xzjg` VALUES ('212', '科技学院');
+INSERT INTO `t_xzjg` VALUES ('213', '国际学院');
+INSERT INTO `t_xzjg` VALUES ('214', '继续教育学院');
+INSERT INTO `t_xzjg` VALUES ('215', '后勤总公司');
+INSERT INTO `t_xzjg` VALUES ('216', '图书馆');
+INSERT INTO `t_xzjg` VALUES ('217', '高等教育研究所');
+INSERT INTO `t_xzjg` VALUES ('218', '期刊社');
+INSERT INTO `t_xzjg` VALUES ('219', '现代教育技术中心');
+INSERT INTO `t_xzjg` VALUES ('220', '档案馆');
+INSERT INTO `t_xzjg` VALUES ('221', '东莞包装学院');
+INSERT INTO `t_xzjg` VALUES ('222', '研究生处');
+INSERT INTO `t_xzjg` VALUES ('223', '招生处');
+INSERT INTO `t_xzjg` VALUES ('224', '就业指导处');
+INSERT INTO `t_xzjg` VALUES ('225', '保卫处');
+INSERT INTO `t_xzjg` VALUES ('226', '监察处');
+INSERT INTO `t_xzjg` VALUES ('227', '审计处');
+INSERT INTO `t_xzjg` VALUES ('228', '国际交流处');
+INSERT INTO `t_xzjg` VALUES ('229', '实验室建设与设备管理处');
+INSERT INTO `t_xzjg` VALUES ('230', '后勤与资产管理处');
+INSERT INTO `t_xzjg` VALUES ('231', '基建处');
+INSERT INTO `t_xzjg` VALUES ('232', '退休工作处');
