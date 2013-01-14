@@ -27,10 +27,10 @@ Ext.onReady(function() {
 				var form = uploadForm.getForm();
 				if (form.isValid()) {
 					form.submit({
-						url: 'XslqAction!uploadXslq.action',
+						url: 'LessonAction!uploadLesson',
 						waitMsg: '正在上传文件',
 						success: function(fp,o) {
-							Ext.Msg.alert('提示信息','插入成功'+o.result.successCount+'条!更新'+o.result.failCount+'条!');
+							Ext.Msg.alert('提示信息','插入成功'+o.result.successCount+'条!失败'+o.result.failCount+'条!');
 						}
 					});
 				}
