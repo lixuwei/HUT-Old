@@ -91,10 +91,11 @@ public class LessonAction extends ActionSupport {
 			lesson.setXueqi((int)Double.parseDouble(arrayList.get(4)));
 			lesson.setKkdw(arrayList.get(5));
 			lesson.setFlag((int)Double.parseDouble(arrayList.get(6)));
-			lesson.setKhfs(arrayList.get(7).substring(0, arrayList.get(7).indexOf(".")));
-			lesson.setState((int)Double.parseDouble(arrayList.get(8)));
+			lesson.setKclb((int)Double.parseDouble(arrayList.get(7)));
+			lesson.setKhfs(arrayList.get(8));
 			lesson.setYear((int)Double.parseDouble(arrayList.get(9)));
 			lesson.setBz(arrayList.get(10));
+			lesson.setState(0);
 			if (lessonService.addObject(lesson)) {
 				successCount++;
 			} else {

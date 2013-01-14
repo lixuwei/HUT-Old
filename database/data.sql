@@ -66,6 +66,7 @@ INSERT INTO `t_function` VALUES ('7', '4', '密码修改', './grxx/xgmm.html');
 INSERT INTO `t_function` VALUES ('8', '4', '个人信息查看', './grxx/grxxcx.html');
 INSERT INTO `t_function` VALUES ('9', '4', '公共课排课', './assets/ggkpk.html');
 INSERT INTO `t_function` VALUES ('10', '2', '导入教室信息', './jcxx/drjsxx.html');
+INSERT INTO `t_function` VALUES ('11', '2', '导入课程信息', './jcxx/drkc.html');
 
 
 -- ----------------------------
@@ -82,6 +83,7 @@ INSERT INTO `t_role_function` VALUES ('2', '6');
 INSERT INTO `t_role_function` VALUES ('2', '7');
 INSERT INTO `t_role_function` VALUES ('2', '9');
 INSERT INTO `t_role_function` VALUES ('2', '10');
+INSERT INTO `t_role_function` VALUES ('2', '11');
 
 
 -- ----------------------------
@@ -104,7 +106,7 @@ INSERT INTO `t_pycc` VALUES ('4', '专科');
 -- ----------------------------
 INSERT INTO `t_xw` VALUES ('01', '博士');
 INSERT INTO `t_xw` VALUES ('02', '硕士');
-INSERT INTO `t_xw` VALUES ('02', '学士');
+INSERT INTO `t_xw` VALUES ('03', '学士');
 
 -- ----------------------------
 -- Records of t_xx     test
@@ -444,3 +446,44 @@ INSERT INTO `t_xzjg` VALUES ('229', '实验室建设与设备管理处');
 INSERT INTO `t_xzjg` VALUES ('230', '后勤与资产管理处');
 INSERT INTO `t_xzjg` VALUES ('231', '基建处');
 INSERT INTO `t_xzjg` VALUES ('232', '退休工作处');
+
+
+-- ----------------------------
+-- Records of t_jsxx
+-- ----------------------------
+INSERT INTO `t_jsxx` VALUES ('1', '包印楼310', '河西新校区包印楼', '1', '156', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('2', '包印楼311', '河西新校区包印楼', '1', '156', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('3', '包印楼401', '河西新校区包印楼', '1', '114', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('4', '包印楼402', '河西新校区包印楼', '1', '110', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('5', '包印楼406', '河西新校区包印楼', '1', '110', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('6', '包印楼407', '河西新校区包印楼', '1', '114', '60', '222', '222', '无');
+INSERT INTO `t_jsxx` VALUES ('7', '文新学院503', '河西新校区传播外语楼', '1', '58', '30', '001', '1', '无');
+INSERT INTO `t_jsxx` VALUES ('8', '文新学院505', '河西新校区传播外语楼', '1', '58', '30', '001', '1', '无');
+INSERT INTO `t_jsxx` VALUES ('9', '思政部101', '河西新校区理学院冶金社科楼', '1', '60', '30', '002', '2', '无');
+INSERT INTO `t_jsxx` VALUES ('10', '思政部201', '河西新校区理学院冶金社科楼', '1', '48', '30', '002', '2', '无');
+INSERT INTO `t_jsxx` VALUES ('11', '思政部202', '河西新校区理学院冶金社科楼', '1', '48', '30', '002', '2', '无');
+INSERT INTO `t_jsxx` VALUES ('12', '外国语学院316', '河西新校区传播外语楼', '1', '58', '30', '003', '3', '无');
+INSERT INTO `t_jsxx` VALUES ('13', '外国语学院318', '河西新校区传播外语楼', '1', '58', '30', '003', '3', '无');
+INSERT INTO `t_jsxx` VALUES ('14', '机械学院会议室', '河西新校区土木机械楼', '1', '60', '30', '005', '5', '无');
+INSERT INTO `t_jsxx` VALUES ('15', '包印实验楼205', '河西新校区包印实验楼', '1', '100', '60', '006', '6', '无');
+INSERT INTO `t_jsxx` VALUES ('16', '包印实验楼308', '河西新校区包印实验楼', '1', '100', '60', '006', '6', '无');
+INSERT INTO `t_jsxx` VALUES ('17', '电气学院509', '河西新校区电气计通楼', '1', '60', '30', '007', '7', '无');
+INSERT INTO `t_jsxx` VALUES ('18', '电气学院510', '河西新校区电气计通楼', '1', '60', '30', '007', '7', '无');
+INSERT INTO `t_jsxx` VALUES ('19', '计通学院505', '河西新校区电气计通楼', '1', '64', '30', '008', '8', '无');
+INSERT INTO `t_jsxx` VALUES ('20', '计通学院506', '河西新校区电气计通楼', '1', '64', '30', '008', '8', '无');
+INSERT INTO `t_jsxx` VALUES ('21', '土木学院302', '河西新校区土木机械楼', '1', '60', '30', '009', '9', '无');
+INSERT INTO `t_jsxx` VALUES ('22', '结构实验楼206', '河西新校区结构实验楼', '1', '60', '30', '009', '9', '无');
+INSERT INTO `t_jsxx` VALUES ('23', '财经学院203', '河西新校区商法财楼', '1', '58', '30', '010', '10', '无');
+INSERT INTO `t_jsxx` VALUES ('24', '财经学院207', '河西新校区商法财楼', '1', '46', '30', '010', '10', '无');
+INSERT INTO `t_jsxx` VALUES ('25', '财经学院208', '河西新校区商法财楼', '1', '46', '30', '010', '10', '无');
+INSERT INTO `t_jsxx` VALUES ('26', '商学院206', '河西新校区商法财楼', '1', '80', '60', '011', '11', '无');
+INSERT INTO `t_jsxx` VALUES ('27', '商学院207', '河西新校区商法财楼', '1', '80', '60', '011', '11', '无');
+INSERT INTO `t_jsxx` VALUES ('28', '商学院302', '河西新校区商法财楼', '3', '20', '20', '011', '11', '无');
+INSERT INTO `t_jsxx` VALUES ('29', '商学院303', '河西新校区商法财楼', '3', '20', '20', '011', '11', '无');
+INSERT INTO `t_jsxx` VALUES ('30', '法学院201', '河西新校区商法财楼', '1', '40', '30', '012', '12', '无');
+INSERT INTO `t_jsxx` VALUES ('31', '法学院206', '河西新校区商法财楼', '1', '40', '30', '012', '12', '无');
+INSERT INTO `t_jsxx` VALUES ('32', '法学院207', '河西新校区商法财楼', '1', '40', '30', '012', '12', '无');
+INSERT INTO `t_jsxx` VALUES ('33', '理学院204', '河西新校区理学院冶金社科楼', '1', '48', '30', '013', '13', '无');
+INSERT INTO `t_jsxx` VALUES ('34', '理学院206', '河西新校区理学院冶金社科楼', '1', '48', '30', '013', '13', '无');
+INSERT INTO `t_jsxx` VALUES ('35', '冶金学院308', '河西新校区理学院冶金社科楼', '1', '40', '30', '014', '14', '无');
+INSERT INTO `t_jsxx` VALUES ('36', '冶金学院310', '河西新校区理学院冶金社科楼', '1', '40', '30', '014', '14', '无');
