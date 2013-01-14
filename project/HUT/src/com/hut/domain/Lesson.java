@@ -8,15 +8,14 @@ public class Lesson {
 	private int kcdm;
 	private String kcmc;
 	private int kclb;
-	private int xf;
+	private Double xf;
 	private int xs;
-	private String kkxq;
+	private int xueqi;
 	private String kkdw;
 	private int flag;
 	private String khfs;
 	private String syzyjfx;
 	private int state;
-	private int xueqi;
 	private int year;
 	private String bz;
 	public int getKcdm() {
@@ -37,23 +36,11 @@ public class Lesson {
 	public void setKclb(int kclb) {
 		this.kclb = kclb;
 	}
-	public int getXf() {
-		return xf;
-	}
-	public void setXf(int xf) {
-		this.xf = xf;
-	}
 	public int getXs() {
 		return xs;
 	}
 	public void setXs(int xs) {
 		this.xs = xs;
-	}
-	public String getKkxq() {
-		return kkxq;
-	}
-	public void setKkxq(String kkxq) {
-		this.kkxq = kkxq;
 	}
 	public int getFlag() {
 		return flag;
@@ -96,6 +83,12 @@ public class Lesson {
 	}
 	public void setBz(String bz) {
 		this.bz = bz;
+	}
+	public Double getXf() {
+		return xf;
+	}
+	public void setXf(Double xf) {
+		this.xf = xf;
 	}
 	public int getXueqi() {
 		return xueqi;

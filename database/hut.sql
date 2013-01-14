@@ -1,6 +1,6 @@
-/*==============================================================*/
+﻿/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/13 20:24:39                           */
+/* Created on:     2013/1/14 22:07:48                           */
 /*==============================================================*/
 
 
@@ -181,7 +181,7 @@ alter table t_class comment '班级表';
 create table t_dqjg
 (
    dm                   varchar(5) not null comment '党群机构代码',
-   mc                   varchar(20) comment '党群机构名称',
+   mc                   varchar(50) comment '党群机构名称',
    primary key (dm)
 );
 
@@ -194,7 +194,7 @@ create table t_dqjgz
 (
    dm                   varchar(10) not null comment '党群机构子代码',
    pdm                  varchar(5) comment '党群机构父代码',
-   mc                   varchar(20) comment '党群机构子名称',
+   mc                   varchar(50) comment '党群机构子名称',
    primary key (dm)
 );
 
@@ -430,13 +430,12 @@ create table t_lesson
    kcdm                 int not null comment '课程代码',
    kcmc                 varchar(20) comment '课程名称',
    kclb                 int default 1 comment '1为学位课的公共课 2为学位课的专业课 3为选修课 4为必修课 5补休课',
-   xf                   int comment '学分',
+   xf                   double comment '学分',
    xs                   int comment '学时',
-   kkxq                 varchar(10) comment '开课学期',
+   xueqi                int comment '开课学期',
    kkdw                 varchar(50) comment '开课单位',
    flag                 int comment '开课单位是学院1 是行政机构2',
    khfs                 varchar(10) comment '考核方式 1为考试  2为考核',
-   syzyjfx              varchar(50) comment '适用专业及方向',
    state                int comment '是否已经锁定 锁定为1',
    year                 int comment '年份',
    bz                   text comment '备注',
@@ -670,7 +669,7 @@ alter table t_role_module comment '角色模块表';
 /*==============================================================*/
 create table t_shjg
 (
-   id                   int not null comment 'Id',
+   id                   varchar(4) not null comment 'Id',
    mc                   varchar(50) comment '社会机构名称',
    primary key (id)
 );
@@ -702,7 +701,7 @@ create table t_teacher
    zcdm                 varchar(10) comment '职称代码',
    zydm                 varchar(10) comment '专业代码',
    zw                   varchar(20) comment '职务',
-   xkfx                 varchar(20) comment '学科方向',
+   yjfx                 varchar(20) comment '研究方向',
    sfzh                 varchar(20) comment '身份证号',
    jszgzh               varchar(10) comment '教师资格证号',
    zjjszgzh             varchar(10) comment '主讲教师资格证号',
@@ -1213,7 +1212,7 @@ alter table t_xyzy comment '学院专业关系表';
 create table t_xzjg
 (
    dm                   varchar(5) not null comment '行政机构代码',
-   mc                   varchar(10) comment '行政机构名称',
+   mc                   varchar(50) comment '行政机构名称',
    primary key (dm)
 );
 
@@ -1226,7 +1225,7 @@ create table t_xzjgz
 (
    dm                   varchar(10) not null comment '行政机构子代码',
    pdm                  varchar(5) comment '行政机构父代码',
-   mc                   varchar(10) comment '行政机构子名称',
+   mc                   varchar(50) comment '行政机构子名称',
    primary key (dm)
 );
 
@@ -1285,7 +1284,7 @@ alter table t_yzbzzy comment '研招标准专业库';
 create table t_zc
 (
    dm                   varchar(10) not null comment '职称代码',
-   mc                   varchar(10) comment '职称名称',
+   mc                   varchar(30) comment '职称名称',
    primary key (dm)
 );
 
