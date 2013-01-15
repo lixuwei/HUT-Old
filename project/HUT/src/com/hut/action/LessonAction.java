@@ -32,6 +32,7 @@ public class LessonAction extends ActionSupport {
 	 */
 	public String showLessonByYearAndXueqi() {
 		List<Lesson> list = null;
+		ServletActionContext.getResponse().setCharacterEncoding("UTF-8");
 		list = lessonService.getLessonsByYearAndXueqi(year, xueqi);
 		JSONArray json = JSONArray.fromObject(list);
 		try {
