@@ -2,7 +2,7 @@ var $Choose = 1;
 Ext.Loader.setConfig({
     enabled: true
 });
-Ext.Loader.setPath('Ext.ux', 'assets/script/examples/ux');
+Ext.Loader.setPath('Ext.ux', 'script/examples/ux');
 
 Ext.require([
     'Ext.ux.CheckColumn'
