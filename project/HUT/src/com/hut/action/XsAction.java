@@ -42,7 +42,7 @@ public class XsAction extends ActionSupport{
 	private XsdsService xsdsService;
 	private XjztService xjztService;
 	private List<Object> items = null;
-	private Xsgrxx xsgrxx = new Xsgrxx();
+	private Xsgrxx data = new Xsgrxx();
 	private int results=0;
 	private int limit=0;
 	private int start=0;
@@ -51,7 +51,7 @@ public class XsAction extends ActionSupport{
 	private String ejxkdm;
 	private String qt;
 	private String qtValue;
-	private boolean successed = true;
+	private boolean success = true;
 	
 	public String showAllByPage() {
 		String queryString = "";
@@ -92,84 +92,84 @@ public class XsAction extends ActionSupport{
 	public String findXsgrxxByXh() {
 		String xh = userService.getUserBySession().getUserName();
 		Xs xs = xsService.findXsByXh(xh);
-		xsgrxx.setXh(xs.getXh());
-		xsgrxx.setZplj(xs.getZplj());
-		xsgrxx.setXm(xs.getXm());
-		xsgrxx.setXmpy(xs.getXmpy());
-		xsgrxx.setCym(xs.getCym());
-		xsgrxx.setZjlx(xs.getZjlx());
+		data.setXh(xs.getXh());
+		data.setZplj(xs.getZplj());
+		data.setXm(xs.getXm());
+		data.setXmpy(xs.getXmpy());
+		data.setCym(xs.getCym());
+		data.setZjlx(xs.getZjlx());
 		if (xs.getXbm() == 1) {
-			xsgrxx.setXb("男");
+			data.setXb("男");
 		} else if(xs.getXbm() == 2){
-			xsgrxx.setXb("女");
+			data.setXb("女");
 		}
-		xsgrxx.setZjhm(xs.getZjhm());
+		data.setZjhm(xs.getZjhm());
 		Mz mz = mzService.findMzByMzdm(xs.getMzm());
-		xsgrxx.setMz(mz.getMc());
-		xsgrxx.setJg(xs.getJg());
-		xsgrxx.setCsrq(xs.getCsrq());
+		data.setMz(mz.getMc());
+		data.setJg(xs.getJg());
+		data.setCsrq(xs.getCsrq());
 		if (xs.getHfm() == 1) {
-			xsgrxx.setHf("未婚");
+			data.setHf("未婚");
 		} else if(xs.getXbm() == 2){
-			xsgrxx.setHf("已婚");
+			data.setHf("已婚");
 		}
-		xsgrxx.setZzmm(xs.getZzmmm());
+		data.setZzmm(xs.getZzmmm());
 		if (xs.getXxfs() == 1) {
-			xsgrxx.setXxfs("全日制");
+			data.setXxfs("全日制");
 		} else if(xs.getXxfs() == 2){
-			xsgrxx.setXxfs("非全日制");
+			data.setXxfs("非全日制");
 		}
 		Xslb xslb = xslbService.findXslbByXslbdm(xs.getXslb());
-		xsgrxx.setXslb(xslb.getMc());
+		data.setXslb(xslb.getMc());
 		Xy xy = xyService.findXyByXydm(xs.getXydm());
-		xsgrxx.setXy(xy.getXymc());
+		data.setXy(xy.getXymc());
 		if(xs.getXdm() != null) {
 			X x = xService.findXByXdm(xs.getXdm());
-			xsgrxx.setX(x.getXmc());
+			data.setX(x.getXmc());
 		} else {
-			xsgrxx.setX("");
+			data.setX("");
 		}
 		if(xs.getPyccdm() != null) {
 			Pycc pycc = pyccService.findPyccByPyccdDm(xs.getPyccdm());
-			xsgrxx.setPycc(pycc.getMc());
+			data.setPycc(pycc.getMc());
 		} else {
-			xsgrxx.setPycc("");
+			data.setPycc("");
 		}
 		Ejxk ejxk = ejxkService.findEjxkByEjxkDm(xs.getEjxkdm());
-		xsgrxx.setXkml(ejxk.getMlmc());
-		xsgrxx.setYjxk(ejxk.getYjxkmc());
-		xsgrxx.setEjxk(ejxk.getEjxkmc());
+		data.setXkml(ejxk.getMlmc());
+		data.setYjxk(ejxk.getYjxkmc());
+		data.setEjxk(ejxk.getEjxkmc());
 		// 导师信息的展示这里未写
 		/*Teacher dsxx1 = teacherService.findByLsbh(xsdsService.findDsxxByXsXh(xs.getXh()).get(0).getLsbh());
 		xsgrxx.setDs1(dsxx1.get)*/
-		xsgrxx.setHdxlfs(xs.getHdxlfsdm());
+		data.setHdxlfs(xs.getHdxlfsdm());
 		if(xs.getXfzqk() == 1) {
-			xsgrxx.setXfzqk("是");
+			data.setXfzqk("是");
 		} else if (xs.getXfzqk() == 2) {
-			xsgrxx.setXfzqk("否");
+			data.setXfzqk("否");
 		}
-		xsgrxx.setXz1(xs.getXz1());
-		xsgrxx.setXz2(xs.getXz2());
-		xsgrxx.setRxny(xs.getRxny());
-		xsgrxx.setNj(xs.getNj());
-		xsgrxx.setRxxq(xs.getRxxq());
+		data.setXz1(xs.getXz1());
+		data.setXz2(xs.getXz2());
+		data.setRxny(xs.getRxny());
+		data.setNj(xs.getNj());
+		data.setRxxq(xs.getRxxq());
 		if(xs.getYjxksq() == 1) {
-			xsgrxx.setYjxksq("是");
+			data.setYjxksq("是");
 		} else if (xs.getXfzqk() == 2) {
-			xsgrxx.setYjxksq("否");
+			data.setYjxksq("否");
 		}
-		xsgrxx.setBjdm(xs.getBjdm());
+		data.setBjdm(xs.getBjdm());
 		Xjzt xjzt = xjztService.findXjztByXjztdm(xs.getXjztdm());
-		xsgrxx.setXjzt(xjzt.getMc());
-		xsgrxx.setXjydqk(xs.getXjydqk());
-		xsgrxx.setKsdm(xs.getKsdm());
-		xsgrxx.setZcqk(xs.getZcqk());
-		xsgrxx.setZcrq(xs.getZcrq());
-		xsgrxx.setYhkh(xs.getYhkh());
-		xsgrxx.setJhsh(xs.getJhsh());
-		xsgrxx.setJsxysm(xs.getJsxysm());
-		xsgrxx.setStzk(xs.getStzk());
-		xsgrxx.setBz(xs.getBz());
+		data.setXjzt(xjzt.getMc());
+		data.setXjydqk(xs.getXjydqk());
+		data.setKsdm(xs.getKsdm());
+		data.setZcqk(xs.getZcqk());
+		data.setZcrq(xs.getZcrq());
+		data.setYhkh(xs.getYhkh());
+		data.setJhsh(xs.getJhsh());
+		data.setJsxysm(xs.getJsxysm());
+		data.setStzk(xs.getStzk());
+		data.setBz(xs.getBz());
 		return SUCCESS;
 	}
 
@@ -347,19 +347,20 @@ public class XsAction extends ActionSupport{
 		}
 	}
 
-	public Xsgrxx getXsgrxx() {
-		return xsgrxx;
+
+	public Xsgrxx getData() {
+		return data;
 	}
 
-	public void setXsgrxx(Xsgrxx xsgrxx) {
-		this.xsgrxx = xsgrxx;
+	public void setData(Xsgrxx data) {
+		this.data = data;
 	}
 
-	public boolean isSuccessed() {
-		return successed;
+	public boolean isSuccess() {
+		return success;
 	}
 
-	public void setSuccessed(boolean successed) {
-		this.successed = successed;
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 }

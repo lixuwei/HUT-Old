@@ -67,6 +67,7 @@ INSERT INTO `t_function` VALUES ('8', '4', '个人信息查看', './grxx/grxxcx.
 INSERT INTO `t_function` VALUES ('9', '4', '公共课排课', './assets/ggkpk.html');
 INSERT INTO `t_function` VALUES ('10', '2', '导入教室信息', './jcxx/drjsxx.html');
 INSERT INTO `t_function` VALUES ('11', '2', '导入课程信息', './jcxx/drkc.html');
+INSERT INTO `t_function` VALUES ('12', '4', '成绩查询', './grxx/xscj.html');
 
 
 -- ----------------------------
@@ -84,6 +85,7 @@ INSERT INTO `t_role_function` VALUES ('2', '7');
 INSERT INTO `t_role_function` VALUES ('2', '9');
 INSERT INTO `t_role_function` VALUES ('2', '10');
 INSERT INTO `t_role_function` VALUES ('2', '11');
+INSERT INTO `t_role_function` VALUES ('1', '12');
 
 
 -- ----------------------------

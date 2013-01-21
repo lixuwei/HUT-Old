@@ -15,4 +15,6 @@ public interface LessonService extends BaseDao {
 	// 根据年份和学期来查询
 	public List<Lesson> getLessonsByYearAndXueqi(int year, int xueqi);
 
+	// 根据课程代码来查询
+	public Lesson getLessonByKcdm(int kcdm);
 }

@@ -1,6 +1,6 @@
 ﻿/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/14 22:07:48                           */
+/* Created on:     2013/1/15 17:23:52                           */
 /*==============================================================*/
 
 
@@ -370,8 +370,13 @@ create table t_kccj
    kcdm                 int not null comment '课程代码',
    lsbh                 varchar(20) not null comment '老师表的老师编号',
    jsxxId               int comment '教室信息Id',
-   zxcj                 float comment '最新成绩(当存在补考或者重修情况的时候,最新考试的分数存这,以前的分数存到zqcj中去)',
-   zqcj                 float comment '之前成绩(当存在补考或者重修情况的时候,最新考试的分数zxcj,以前的分数存到这里)',
+   zxcj                 double comment '最新成绩(当存在补考或者重修情况的时候,最新考试的分数存这,以前的分数存到zqcj中去)',
+   zqcj                 double comment '之前成绩(当存在补考或者重修情况的时候,最新考试的分数zxcj,以前的分数存到这里)',
+   pscj                 double comment '平时成绩',
+   kscj                 double comment '考试成绩',
+   xf                   double comment '获得的学分',
+   year                 int comment '年份',
+   xueqi                int comment '学期',
    primary key (id)
 );
 
@@ -429,7 +434,7 @@ create table t_lesson
 (
    kcdm                 int not null comment '课程代码',
    kcmc                 varchar(20) comment '课程名称',
-   kclb                 int default 1 comment '1为学位课的公共课 2为学位课的专业课 3为选修课 4为必修课 5补休课',
+   kclb                 int default 1 comment '1为学位课的公共课 2为学位课的专业课 3为选修课 4为必修环节 5为实践环节 6为补休课',
    xf                   double comment '学分',
    xs                   int comment '学时',
    xueqi                int comment '开课学期',
