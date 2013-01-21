@@ -52,6 +52,22 @@ public class LessonServiceImpl extends BaseDaoImpl implements LessonService {
 		}
 		return list;
 	}
+	
 
+	public Lesson getLessonByKcdm(int kcdm) {
+		// TODO Auto-generated method stub
+		String sql = "from Lesson where kcdm = ?";
+		List<Lesson> list = null;
+		try {
+			list = this.getHibernateTemplate().find(sql, kcdm);
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(list.isEmpty())
+			return null;
+		else 
+			return list.get(0);
+	}
 
 }

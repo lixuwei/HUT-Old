@@ -56,5 +56,6 @@
 	<mapping resource="com/hut/domain/Jsxx.hbm.xml" />
 	<mapping resource="com/hut/domain/Lesson.hbm.xml" />
 	<mapping resource="com/hut/domain/Mid.hbm.xml" />
+	<mapping resource="com/hut/domain/Kccj.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

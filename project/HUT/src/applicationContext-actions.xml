@@ -116,5 +116,14 @@
 	<bean id="JsxxAction" class="com.hut.action.JsxxAction" scope="prototype">
 		<property name="jsxxService" ref="jsxxService"></property>
 	</bean>
+	
+	<bean id="KccjAction" class="com.hut.action.KccjAction" scope="prototype">
+		<property name="kccjService" ref="kccjService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="xsService" ref="xsService"></property>
+		<property name="ejxkService" ref="ejxkService"></property>
+		<property name="xyService" ref="xyService"></property>
+		<property name="lessonService" ref="lessonService"></property>
+	</bean>
 </beans>
 

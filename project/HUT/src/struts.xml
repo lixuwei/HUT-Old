@@ -25,9 +25,9 @@
 			<result name="success" type="json" />
 		</action>
 
-		<!-- <action name="XyAction" class="XyAction">
+		<action name="XyAction" class="XyAction">
 			<result name="success" type="json" />
-		</action> -->
+		</action>
 
 		<action name="EjxkAction" class="EjxkAction">
 			<result name="success" type="json" />
@@ -98,6 +98,10 @@
 		<action name="MidAction" class="MidAction">
 			<result name="success" type="json" />
 		</action>
+		
+		<action name="KccjAction" class="KccjAction">
+			<result name="success" type="json" />
+		</action>
 	</package>
 
 	<!--受权限控制的Action请求配置 -->
@@ -123,9 +127,9 @@
 			<result name="noAuthority">/error.html</result>
 		</global-results>
 
-		<action name="XyAction" class="XyAction">
+		<!-- <action name="XyAction" class="XyAction">
 			<result name="success" type="json" />
-		</action>
+		</action> -->
 	</package>
 	
 </struts>
