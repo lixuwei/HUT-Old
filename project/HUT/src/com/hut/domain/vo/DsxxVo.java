@@ -13,6 +13,7 @@ public class DsxxVo implements java.io.Serializable {
 	private  int   zysszps ;
 	private String dexkyjxkm;
 	private String dexkejxkm;
+	
 	private  int   dexkzdbs;
 	private  int   debszps;
 	private  int   dexkzdss;
@@ -23,6 +24,7 @@ public class DsxxVo implements java.io.Serializable {
 	private String   zgxw;
 	private String zgxwsj;
 	private String   zyjszw ;
+	
 	private String   dslb;
 	private String scrsdsj;
 	private String scrbdsj;
@@ -32,6 +34,121 @@ public class DsxxVo implements java.io.Serializable {
 	private String   jzbsds;
 	private String jzdwmc;
 	private String zydm;
+	private String dwmc;
+
+	private String xb;
+	private String csny;
+	private String mz;
+	private String sfzhm;
+	private String zzmm;
+	private String szbm ;
+	private String xzzw;
+	private String txdz;
+	private String yzbm;
+	private String bgdh;
+	
+	private String zzdh;
+	private String yddh;
+	private String dzxx;
+	private String czdh;
+	private String xnxw;
+	
+	public String getXnxw() {
+		return xnxw;
+	}
+	public void setXnxw(String xnxw) {
+		this.xnxw = xnxw;
+	}
+	public String getDwmc() {
+		return dwmc;
+	}
+	public void setDwmc(String dwmc) {
+		this.dwmc = dwmc;
+	}
+	public String getXb() {
+		return xb;
+	}
+	public void setXb(String xb) {
+		this.xb = xb;
+	}
+	public String getCsny() {
+		return csny;
+	}
+	public void setCsny(String csny) {
+		this.csny = csny;
+	}
+	public String getMz() {
+		return mz;
+	}
+	public void setMz(String mz) {
+		this.mz = mz;
+	}
+	public String getSfzhm() {
+		return sfzhm;
+	}
+	public void setSfzhm(String sfzhm) {
+		this.sfzhm = sfzhm;
+	}
+	public String getZzmm() {
+		return zzmm;
+	}
+	public void setZzmm(String zzmm) {
+		this.zzmm = zzmm;
+	}
+	public String getSzbm() {
+		return szbm;
+	}
+	public void setSzbm(String szbm) {
+		this.szbm = szbm;
+	}
+	public String getXzzw() {
+		return xzzw;
+	}
+	public void setXzzw(String xzzw) {
+		this.xzzw = xzzw;
+	}
+	public String getTxdz() {
+		return txdz;
+	}
+	public void setTxdz(String txdz) {
+		this.txdz = txdz;
+	}
+	public String getYzbm() {
+		return yzbm;
+	}
+	public void setYzbm(String yzbm) {
+		this.yzbm = yzbm;
+	}
+	public String getBgdh() {
+		return bgdh;
+	}
+	public void setBgdh(String bgdh) {
+		this.bgdh = bgdh;
+	}
+	public String getZzdh() {
+		return zzdh;
+	}
+	public void setZzdh(String zzdh) {
+		this.zzdh = zzdh;
+	}
+	public String getYddh() {
+		return yddh;
+	}
+	public void setYddh(String yddh) {
+		this.yddh = yddh;
+	}
+	public String getDzxx() {
+		return dzxx;
+	}
+	public void setDzxx(String dzxx) {
+		this.dzxx = dzxx;
+	}
+	public String getCzdh() {
+		return czdh;
+	}
+	public void setCzdh(String czdh) {
+		this.czdh = czdh;
+	}
 	public String getLsbh() {
 		return lsbh;
 	}

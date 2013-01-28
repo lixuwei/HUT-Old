@@ -35,16 +35,28 @@ public class YzbyzyServiceImpl extends BaseDaoImpl implements YzbzzyService {
 		else return yzbzzys.get(0);
 	}
 
-	public Yzbzzy findDexkyjxkByZydm(String zydm) {
-		List<Yzbzzy> xls = new ArrayList<Yzbzzy>();
+	public Yzbzzy findZyByYjxkmc(String zymc) {
+		List<Yzbzzy> txls = new ArrayList<Yzbzzy>();
 		try {
-			String string = "from Yzbzzy t where t.zydm=?";
-			xls = this.getHibernateTemplate().find(string, zydm);
+			String query = "from Yzbzzy tx where tx.yjxkmc=?";
+			txls = this.getHibernateTemplate().find(query,zymc);
 		} catch (Exception e) {
-			System.out.println("得到老师的学历名称失败");
+			System.out.println("查询专业代码失败");
 		}
-		if(xls.isEmpty()) return null;
-		else return xls.get(0);
+		if(txls.isEmpty()) return  null;
+		else return txls.get(0);
+	}
+
+	public Yzbzzy findYjxkmByZydm(String zydm) {
+		List<Yzbzzy> txls = new ArrayList<Yzbzzy>();
+		try {
+			String query = "from Yzbzzy tx where tx.yjxkdm=?";
+			txls = this.getHibernateTemplate().find(query,zydm);
+		} catch (Exception e) {
+			System.out.println("查询专业代码失败");
+		}
+		if(txls.isEmpty()) return  null;
+		else return txls.get(0);
 	}
 
 	

@@ -21,12 +21,12 @@
 				<comment>职工号</comment>
 			</column>
 		</property>
-		<property name="zplj">
+		<property name="zplj" >
 			<column name="zplj">
 				<comment>职工号</comment>
 			</column>
 		</property>
-		<property name="xb">
+		<property name="xb" type="java.lang.Integer">
 			<column name="xb">
 				<comment>性别</comment>
 			</column>

@@ -14,7 +14,7 @@ public class Teacher implements java.io.Serializable {
 	private String xm;
 	private String zgh;
 	private String zplj;
-	private int    xb ;
+	private Integer    xb ;
 	private String mzdm;
 	private String csrq;
 	private String zzmmdm;
@@ -91,10 +91,10 @@ public class Teacher implements java.io.Serializable {
 	public void setZplj(String zplj) {
 		this.zplj = zplj;
 	}
-	public int getXb() {
+	public Integer getXb() {
 		return xb;
 	}
-	public void setXb(int xb) {
+	public void setXb(Integer xb) {
 		this.xb = xb;
 	}
 	public String getMzdm() {

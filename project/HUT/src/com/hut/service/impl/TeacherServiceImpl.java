@@ -12,22 +12,16 @@ import com.hut.service.TeacherService;
 public class TeacherServiceImpl extends BaseDaoImpl implements TeacherService{
 	
 	//通过老师身份证号查询老师
-	public Teacher findByZgh(String string) {
+	public Teacher findBySfzhm(String string) {
 		List<Teacher> teachers = new ArrayList<Teacher>();
-		Teacher teacher= new Teacher();
 		try{
 			String query = "from Teacher t where t.sfzh=?";
 			teachers = this.getHibernateTemplate().find(query,string);
-			if(teachers.size()==0){
-				teacher= null;
-			}else {
-				teacher= teachers.get(0);
-			}
 		}catch (Exception e) {
 			System.out.println("通过老师身份证号查询老师失败");
-			teacher= null;
 		}
-		return teacher;
+		if(teachers.isEmpty()) return null;
+		else return teachers.get(0);
 	}
 	
 	//添加一个老师的数据
@@ -62,29 +56,7 @@ public class TeacherServiceImpl extends BaseDaoImpl implements TeacherService{
 		}
 		return list;
 	}
-	
-	//查询老师编号
-	public String findBysfz(String string) {
-		List<Teacher> txls = new ArrayList<Teacher>();
-		Teacher teacher = new Teacher();
-		try {
-			String query = "from Teacher  tx where tx.sfzh=?";
-			txls = this.getHibernateTemplate().find(query,string);
-			if(txls.size()==0){
-				teacher= null;
-			}else {
-				teacher=txls.get(0); 
-			}
-		} catch (Exception e) {
-			System.out.println("通过身份证查询老师编号失败");
-			teacher= null;
-		}
-		if(teacher==null){
-			return "";
-		}else {
-			return teacher.getLsbh();
-		}
-	}
+
 	
 	//通过在同一学院的老师人数
 	public int getTeachers(String xydm) {
@@ -131,5 +103,18 @@ public class TeacherServiceImpl extends BaseDaoImpl implements TeacherService{
 			return null;
 		else 
 			return list.get(0);
-	} 
+	}
+
+	public Teacher findByZgh(String zgh) {
+		List<Teacher> teachers = new ArrayList<Teacher>();
+		try {
+			String query = "from Teacher t where t.zgh=?";
+			teachers = this.getHibernateTemplate().find(query,zgh);
+		} catch (Exception e) {
+			System.out.println("根据职工号查找老师失败");
+		}
+		if(teachers.isEmpty()) return null;
+		else return  teachers.get(0);
+	}
+
 }

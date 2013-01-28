@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-8-11 17:52:56 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.hut.domain.Yjdw" table="t_yjdw">
+        <id name="dwdm" type="java.lang.String">
+            <generator class="native" />
+        </id>
+        <property name="dwmc" />
+    </class>
+</hibernate-mapping>

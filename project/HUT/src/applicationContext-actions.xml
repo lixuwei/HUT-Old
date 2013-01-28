@@ -65,11 +65,13 @@
 		<property name="xwService" ref="xwService" />
 		<property name="zcService" ref="zcService" />
 		<property name="zzmmService" ref="zzmmService" />
-		<property name="zjlbService" ref="zjlbService" />
-		<property name="dsxxService" ref="dsxxService" />
 		<property name="userService" ref="userService" />
 		<property name="xxService" ref="xxService" />
 		<property name="userRoleService" ref="userRoleService"></property>
+		<property name="dqjgService" ref="dqjgService"></property>
+		<property name="xzjgService" ref="xzjgService"></property>
+		<property name="shjgService" ref="shjgService"></property>
+		<property name="createNumberService" ref="createNumberService"></property>
 	</bean>
 	
 	<bean id="UserRoleAction" class="com.hut.action.UserRoleAction" scope="prototype">
@@ -124,6 +126,26 @@
 		<property name="ejxkService" ref="ejxkService"></property>
 		<property name="xyService" ref="xyService"></property>
 		<property name="lessonService" ref="lessonService"></property>
+	</bean>
+	
+	<bean id="DaoShiAction" class="com.hut.action.DaoShiAction">
+		<property name="userRoleService" ref="userRoleService"></property>
+		<property name="teacherService"  ref="teacherService"></property>
+		<property name="dsxxService"  ref="dsxxService"></property>
+		<property name="zzmmService"  ref="zzmmService"></property>
+		<property name="zjlbService"  ref="zjlbService"></property>
+		<property name="yzbzzyService"  ref="yzbzzyService"></property>
+		<property name="yjdwService" ref="yjdwService"></property>
+		<property name="mzService"  ref="mzService"></property>
+		<property name="xyService"  ref="xyService"></property>
+		<property name="dqjgService" ref="dqjgService"></property>
+		<property name="xzjgService" ref="xzjgService"></property>
+		<property name="shjgService" ref="shjgService"></property>
+		<property name="createNumberService" ref="createNumberService"></property>
+		<property name="xwService"  ref="xwService"></property>
+		<property name="xlService"  ref="xlService"></property>
+		<property name="userService" ref="userService"></property>
+		<property name="zcService"  ref="zcService"></property>
 	</bean>
 </beans>
 
