@@ -13,16 +13,13 @@ public interface TeacherService extends BaseDao{
 	public List<Teacher> getAllTeacher();
 	
 	/**通过老师身份证查询老师	*/
-	public Teacher findByZgh(String string);
+	public Teacher findBySfzhm(String string);
 	
 	/**添加一条老师记录	*/
 	public boolean addObject(Object object);
 	
 	/**老师记录重复，就修改	*/
 	public void modifyData( Teacher tTeacher);
-	
-	/**通过老师身份证号码查询老师的编号 */	
-	public String findBysfz(String string);
 	
 	/**统计现有老师的人数 */	
 	public int getTeachers(String xydm);
@@ -34,4 +31,7 @@ public interface TeacherService extends BaseDao{
 	 * 根据老师编号得到老师对象
 	 */
 	public Teacher findTeacherByLsbh(String lsbh);
+
+	/**通过老师职工号查找老师	*/
+	public Teacher findByZgh(String string);
 }

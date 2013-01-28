@@ -4,7 +4,10 @@ package com.hut.service;
 import java.util.List;
 
 import com.hut.dao.BaseDao;
+import com.hut.domain.Dqjg;
+import com.hut.domain.Shjg;
 import com.hut.domain.Xy;
+import com.hut.domain.Xzjg;
 
 /*
  * 学院

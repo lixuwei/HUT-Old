@@ -2,6 +2,7 @@ package com.hut.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +14,27 @@ import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.hut.domain.Dqjg;
+import com.hut.domain.Mz;
+import com.hut.domain.Shjg;
 import com.hut.domain.Teacher;
 import com.hut.domain.User;
 import com.hut.domain.UserRole;
 import com.hut.domain.X;
+import com.hut.domain.Xl;
+import com.hut.domain.Xw;
+import com.hut.domain.Xx;
 import com.hut.domain.Xy;
+import com.hut.domain.Xzjg;
+import com.hut.domain.Yzbzzy;
+import com.hut.domain.Zc;
+import com.hut.domain.Zzmm;
 import com.hut.domain.vo.TeacherVo;
+import com.hut.service.CreateNumberService;
+import com.hut.service.DqjgService;
 import com.hut.service.DsxxService;
 import com.hut.service.MzService;
+import com.hut.service.ShjgService;
 import com.hut.service.TeacherService;
 import com.hut.service.UserRoleService;
 import com.hut.service.UserService;
@@ -29,9 +43,9 @@ import com.hut.service.XlService;
 import com.hut.service.XwService;
 import com.hut.service.XxService;
 import com.hut.service.XyService;
+import com.hut.service.XzjgService;
 import com.hut.service.YzbzzyService;
 import com.hut.service.ZcService;
-import com.hut.service.ZjlbService;
 import com.hut.service.ZzmmService;
 import com.hut.util.ExcelReader;
 import com.hut.util.MD5;
@@ -45,6 +59,8 @@ public class TeacherAction extends ActionSupport {
 	private XwService xwService;           private ZcService zcService;
 	private ZzmmService zzmmService;       private UserService userService;
 	private XxService xxService;           private UserRoleService userRoleService;
+	private DqjgService dqjgService;       private XzjgService  xzjgService;
+	private ShjgService shjgService;       private CreateNumberService  createNumberService;
 	
 	/*导入老师数据  代码段开始	*/
 	private File upload; //上传的文件
@@ -101,7 +117,7 @@ public class TeacherAction extends ActionSupport {
 		for(int i=1; i<data.size(); i++) {
 			ArrayList<String> arrayList = (ArrayList<String>)data.get(i);
 			Teacher tTeacher = new Teacher();
-			String LSBH =createTeacherNumber(arrayList.get(21), arrayList.get(6));
+			String LSBH =createNumberService.createNumber(arrayList.get(21), arrayList.get(6));
 			tTeacher.setLsbh(LSBH);
 			tTeacher.setXm(arrayList.get(0));
 			tTeacher.setZgh(arrayList.get(1));
@@ -111,32 +127,108 @@ public class TeacherAction extends ActionSupport {
 			}else {
 				tTeacher.setXb(0);
 			}
-			tTeacher.setMzdm(mzService.findMzdmByMzmc(arrayList.get(3)).getDm());
-			tTeacher.setCsrq(arrayList.get(4));
-			tTeacher.setZzmmdm(zzmmService.findZzmmdmByMc(arrayList.get(5)).getDm());
-			tTeacher.setXydm(xyService.findXyByXymc(arrayList.get(6)).getDm());
+			Mz  mz= mzService.findMzdmByMzmc(arrayList.get(3));
+			if(mz!=null) tTeacher.setMzdm(mz.getDm());
+			else  tTeacher.setMzdm(null);
+			
+			String csrq = arrayList.get(4);
+			if("无".equals(csrq)) 	tTeacher.setCsrq(null);
+			else tTeacher.setCsrq(csrq);
+			
+			Zzmm  zzmm = zzmmService.findZzmmdmByMc(arrayList.get(5));
+			if(zzmm!=null) tTeacher.setZzmmdm(zzmm.getDm());
+			else  tTeacher.setZzmmdm(null);
+			
+			/*处理老师来源的代码		开始	*/
+			String mc =arrayList.get(6);
+			if("无".equals(mc)){
+				tTeacher.setXydm(null);
+			}else{
+				Xy   xy = xyService.findXyByXymc(mc);
+				if(xy!=null)  tTeacher.setXydm(xy.getDm());
+				else{
+					Dqjg dqjg = dqjgService.findDqjgBymc(mc);
+					if(dqjg!=null) tTeacher.setXydm(dqjg.getDm());
+					else {
+						Xzjg xzjg = xzjgService.findXzjgBymc(mc);
+						if(xzjg!=null) tTeacher.setXydm(xzjg.getDm());
+						else {
+							Shjg shjg = shjgService.findShjgBymc(mc);
+							if(shjg!=null) tTeacher.setXydm(shjg.getDm());
+							else  tTeacher.setXydm(null);
+						}
+					}
+				}
+			}
+			/*处理老师来源的代码	   结束	*/
+			
 			X x = xService.findXByXmc(arrayList.get(7));
 			if(x==null) tTeacher.setXdm(null);
 			else tTeacher.setXdm(x.getXdm());
-			tTeacher.setLxdh(arrayList.get(8));
-			tTeacher.setEmail(arrayList.get(9));
-			tTeacher.setByxxdm(xxService.findXxByXxmc(arrayList.get(10)).getDm());
-			tTeacher.setByzydm(yzbzzyService.findZyByZymc(arrayList.get(11)).getZydm());
-			tTeacher.setXldm(xlService.findXlByXlmc(arrayList.get(12)).getDm());
-			tTeacher.setXwdm(xwService.findXwByXwmc(arrayList.get(13)).getDm());
-			tTeacher.setZcdm(zcService.findZcByZcmc(arrayList.get(14)).getDm());
-			tTeacher.setZydm(yzbzzyService.findZyByZymc(arrayList.get(11)).getZydm());
-			tTeacher.setZw(arrayList.get(15));
-			tTeacher.setXkfx(arrayList.get(16));
-			tTeacher.setSfzh(arrayList.get(17));
-			tTeacher.setJszgzh(arrayList.get(18));
-			tTeacher.setZjjszgzh(arrayList.get(19));
-			tTeacher.setJxzlpj(arrayList.get(20));
+			
+			String lxdh = arrayList.get(8);
+			if("无".equals(lxdh)) tTeacher.setLxdh(null);
+			else  tTeacher.setLxdh(lxdh);
+			
+			String email = arrayList.get(9);
+			if("无".equals(email))  tTeacher.setEmail(null);
+			else 	tTeacher.setEmail(email);
+			
+			Xx  xx = xxService.findXxByXxmc(arrayList.get(10));
+			if(xx!=null)	tTeacher.setByxxdm(xx.getDm());
+			else   tTeacher.setByxxdm(null);
+			
+			Yzbzzy  yzbzzy = yzbzzyService.findZyByZymc(arrayList.get(11));
+			if(yzbzzy!=null) tTeacher.setByzydm(yzbzzy.getZydm());
+			else tTeacher.setByzydm(null);
+			
+			Xl   xl = xlService.findXlByXlmc(arrayList.get(12));
+			if(xl!=null) 	tTeacher.setXldm(xl.getDm());
+			else  tTeacher.setXldm(null);
+			
+			Xw   xw  = xwService.findXwByXwmc(arrayList.get(13));
+			if(xw!=null)   tTeacher.setXwdm(xw.getDm());
+			else tTeacher.setXwdm(null);
+			
+			Zc   zc  = zcService.findZcByZcmc(arrayList.get(14));
+			if(zc!=null)    tTeacher.setZcdm(zc.getDm());
+			else tTeacher.setZcdm(null);
+			
+			Yzbzzy  yzbzzy2 = yzbzzyService.findZyByZymc(arrayList.get(11));
+			if(yzbzzy2!=null)  tTeacher.setZydm(yzbzzy2.getZydm());
+			else tTeacher.setZydm(null);
+			
+			String  zw = arrayList.get(15);
+			if("无".equals(zw))  tTeacher.setZw(null);
+			else  tTeacher.setZw(zw);
+			
+			String  xkfx = arrayList.get(16);
+			if("无".equals(xkfx))  tTeacher.setXkfx(null);
+			else  	tTeacher.setXkfx(xkfx);
+			
+			String  sfzh = arrayList.get(17);
+			if("无".equals(sfzh))  tTeacher.setSfzh(null);
+			else   	tTeacher.setSfzh(sfzh);
+			
+			String  jszgzh = arrayList.get(18);
+			if("无".equals(jszgzh))  tTeacher.setJszgzh(null);
+			else  tTeacher.setJszgzh(jszgzh);
+			
+			String  zjjszgzh =  arrayList.get(19);
+			if("无".equals(zjjszgzh)) tTeacher.setZjjszgzh(null);
+			else 	tTeacher.setZjjszgzh(zjjszgzh);
+			
+			String  jxzlpj = arrayList.get(20);
+			if("无".equals(jxzlpj))  tTeacher.setJxzlpj(null);
+			else  	tTeacher.setJxzlpj(jxzlpj);
+			
 			tTeacher.setJsjj("");
 						
 			User  tUser = new User();
 			tUser.setUserName(LSBH);
 			tUser.setPassword(MD5.toMD5(arrayList.get(17).substring(arrayList.get(17).length()-6, arrayList.get(17).length())));
+			tUser.setEmail(tTeacher.getEmail());
+			tUser.setTel(tTeacher.getLxdh());
 			User  tUser2 =userService.findUserByLsbh(LSBH);
 			
 				Teacher temp = teacherService.findByZgh(arrayList.get(17));
@@ -166,24 +258,6 @@ public class TeacherAction extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-	
-	//编制学号  传过来的是校内还是校外  还有学院名称
-	public String createTeacherNumber(String id,String name ){
-		String  LSBH =null;
-		char i=0;
-		if("在编".equals(id))
-			i='1';
-		else
-			i='2';
-		Xy xy = xyService.findXyByXymc(name);
-		String xydm =xy.getDm();
-		//查询同学院的老师的人数
-		int count = teacherService.getTeachers(xydm);
-		NumberFormat format = NumberFormat.getInstance();
-		format.setMinimumIntegerDigits(3);
-		LSBH = i + xy.getDm() +  format.format(count+1);
-		return LSBH;
-	}  
 	
 	/*导入老师信息  代码段结束	*/
 	
@@ -261,27 +335,93 @@ public class TeacherAction extends ActionSupport {
 					teacher.setXb("女");
 				}
 				
-				String NationName = mzService.findMzByMzdm(teachersList.get(i).getMzdm()).getMc();
-				teacher.setMzdm(NationName);
-				teacher.setCsrq(teachersList.get(i).getCsrq());
-				teacher.setLxdh(teachersList.get(i).getLxdh());
-				teacher.setEmail(teachersList.get(i).getEmail());
-				teacher.setZzmmdm(zzmmService.findZzmmdmByDm(teachersList.get(i).getZzmmdm()).getMc());
-				teacher.setXydm(xyService.findXyByXydm(teachersList.get(i).getXydm()).getXymc());
+				String  mzdm = teachersList.get(i).getMzdm();
+				if(mzdm==null) teacher.setMzdm("");
+				else  teacher.setMzdm(mzService.findMzByMzdm(mzdm).getMc());
+				
+				String  csrq = teachersList.get(i).getCsrq();
+				if(csrq==null) teacher.setCsrq("");
+				else  teacher.setCsrq(csrq);
+				
+				String  lxdh = teachersList.get(i).getLxdh();
+				if(lxdh==null) teacher.setLxdh("");
+				else  teacher.setLxdh(lxdh);
+				
+				String  email = teachersList.get(i).getEmail(); 
+				if(email==null)  teacher.setEmail("");
+				else  teacher.setEmail(email);
+				
+				String  zzmm = teachersList.get(i).getZzmmdm();
+				if(zzmm!=null) teacher.setZzmmdm(zzmmService.findZzmmdmByDm(zzmm).getMc());
+				else  teacher.setZzmmdm("");
+				
+				String dm = teachersList.get(i).getXydm();
+				if(dm!=null){
+					Xy   xy = xyService.findXyByXydm(dm);
+					if(xy!=null)  teacher.setXydm(xy.getXymc());
+					else{
+						Dqjg dqjg = dqjgService.findDqjgBydm(dm);
+						if(dqjg!=null) teacher.setXydm(dqjg.getMc());
+						else{
+							Xzjg xzjg = xzjgService.findXzjgBydm(dm);
+							if(xzjg!=null) teacher.setXydm(xzjg.getMc());
+							else{
+								Shjg shjg = shjgService.findShjgBydm(dm);
+								if(shjg!=null) teacher.setXydm(shjg.getMc());
+								else teacher.setXydm("");
+							}
+						}
+					}
+				}else teacher.setXydm("");
+				
 				if(teachersList.get(i).getXdm()==null)  teacher.setXdm("");
 				else   teacher.setXdm(xService.findXByXdm(teachersList.get(i).getXdm()).getXmc());
-				teacher.setByxxdm(xxService.findXxByXxdm(teachersList.get(i).getByxxdm()).getMc());
-				teacher.setByzydm(yzbzzyService.findZyByZydm(teachersList.get(i).getByzydm()).getZymc());
-				teacher.setXldm(xlService.findXlByXldm(teachersList.get(i).getXldm()).getCm());
-				teacher.setXwdm(xwService.findXwByXwdm(teachersList.get(i).getXwdm()).getMc());
-				teacher.setZcdm(zcService.findZcByZcdm(teachersList.get(i).getZcdm()).getMc());
-				teacher.setZw(teachersList.get(i).getZw());
-				teacher.setXkfx(teachersList.get(i).getXkfx());
-				teacher.setSfzh(teachersList.get(i).getSfzh());
-				teacher.setJszgzh(teachersList.get(i).getJszgzh());
+				
+				String byxx = teachersList.get(i).getByxxdm();
+				if(byxx==null) teacher.setByxxdm("");
+				else 	teacher.setByxxdm(xxService.findXxByXxdm(byxx).getMc());
+				
+				String byzy = teachersList.get(i).getByzydm();
+				if(byzy==null) teacher.setByzydm("");
+				else    teacher.setByzydm(yzbzzyService.findZyByZydm(byzy).getZymc());
+				
+				String xl = teachersList.get(i).getXldm();
+				if(xl==null)  teacher.setXldm("");
+				else	teacher.setXldm(xlService.findXlByXldm(xl).getCm());
+				
+				String xw = teachersList.get(i).getXwdm();
+				if(xw==null)  teacher.setXwdm("");
+				else 	teacher.setXwdm(xwService.findXwByXwdm(xw).getMc());
+				
+				String zc = teachersList.get(i).getZcdm();
+				if(zc==null) teacher.setZcdm("");
+				else   teacher.setZcdm(zcService.findZcByZcdm(zc).getMc());
+				
+				String  zw =teachersList.get(i).getZw();
+				if(zw==null) teacher.setZw("");
+				else teacher.setZw(zw);
+				
+				String  xkfx = teachersList.get(i).getXkfx();
+				if(xkfx==null) teacher.setXkfx("");
+				else   teacher.setXkfx(xkfx);
+				
+				String  sfzh = teachersList.get(i).getSfzh();
+				if(sfzh==null) teacher.setSfzh("");
+				else  teacher.setSfzh(sfzh);
+				
+				String jszgzh = teachersList.get(i).getJszgzh();
+				if(jszgzh==null) teacher.setJszgzh("");
+				else  teacher.setJszgzh(jszgzh);
+				
 				teacher.setJsjj(teachersList.get(i).getJsjj());
-				teacher.setZjjszgzh(teachersList.get(i).getZjjszgzh());
-				teacher.setJxzlpj(teachersList.get(i).getJxzlpj());
+				
+				String  zjjszgzh = teachersList.get(i).getZjjszgzh();
+				if(zjjszgzh==null) teacher.setZjjszgzh("");
+				else 	teacher.setZjjszgzh(zjjszgzh);
+				
+				String  jxzlpj  = teachersList.get(i).getJxzlpj();
+				if(jxzlpj==null) teacher.setJxzlpj("");
+				else  teacher.setJxzlpj(jxzlpj);
 				items.add(teacher);
 			}
 		return SUCCESS;
@@ -316,7 +456,6 @@ public class TeacherAction extends ActionSupport {
 	public void setZzmmService(ZzmmService zzmmService) {
 		this.zzmmService = zzmmService;
 	}
-	
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
@@ -326,8 +465,20 @@ public class TeacherAction extends ActionSupport {
 	public void setUserRoleService(UserRoleService userRoleService) {
 		this.userRoleService = userRoleService;
 	}
+	public void setDqjgService(DqjgService dqjgService) {
+		this.dqjgService = dqjgService;
+	}
+	public void setXzjgService(XzjgService xzjgService) {
+		this.xzjgService = xzjgService;
+	}
+	public void setShjgService(ShjgService shjgService) {
+		this.shjgService = shjgService;
+	}
+	public void setCreateNumberService(CreateNumberService createNumberService) {
+		this.createNumberService = createNumberService;
+	}
 	
-	public String getAllTeachers() {
+/*	public String getAllTeachers() {
 		List<Teacher> teacherList = teacherService.getAllTeacher();
 		JSONArray json = JSONArray.fromObject(teacherList);
 		try {
@@ -337,5 +488,5 @@ public class TeacherAction extends ActionSupport {
 			e.printStackTrace();
 		}
 		return null;
-	}
+	}*/
 }

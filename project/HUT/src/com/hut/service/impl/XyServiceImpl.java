@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hut.dao.impl.BaseDaoImpl;
+import com.hut.domain.Dqjg;
+import com.hut.domain.Shjg;
 import com.hut.domain.Xy;
+import com.hut.domain.Xzjg;
 import com.hut.service.XyService;
 
 public class XyServiceImpl extends BaseDaoImpl implements XyService {
@@ -38,14 +41,17 @@ public class XyServiceImpl extends BaseDaoImpl implements XyService {
 	}
 
 	public Xy findXyByXymc(String xymc) {
-		List<Xy> txys = new ArrayList<Xy>();
+		List<Xy>    txys = new ArrayList<Xy>();
+		String query= "";
 		try {
-			String query = "from Xy tx where tx.xymc=?";
+			query = "from Xy tx where tx.xymc=?";
 			txys = this.getHibernateTemplate().find(query,xymc);
 		} catch (Exception e) {
 			System.out.println("查询学院代码失败");
 		}
-		if(txys.isEmpty())return null;
+		if(txys.isEmpty()) return null;
 		else return txys.get(0);
 	}
+	
+
 }

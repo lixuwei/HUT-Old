@@ -148,6 +148,23 @@
 	<bean id="kccjService" class="com.hut.service.impl.KccjServiceImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	
+		<bean id="dqjgService" class="com.hut.service.impl.DqjgServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
+	<bean id="xzjgService" class="com.hut.service.impl.XzjgServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="shjgService" class="com.hut.service.impl.ShjgServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="createNumberService" class="com.hut.service.impl.CreateNumberServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="yjdwService" class="com.hut.service.impl.YjdwServiceImpl">
+		<property name="sessionFactory"  ref="sessionFactory"></property>
+	</bean>
 </beans>

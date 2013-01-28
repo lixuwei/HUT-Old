@@ -13,7 +13,7 @@
 		com.mysql.jdbc.Driver
 	</property>
 	<property name="hibernate.connection.username">root</property>
-	<property name="hibernate.connection.password">root</property>
+	<property name="hibernate.connection.password">mysql</property>
 	<property name="hibernate.dialect">
 		org.hibernate.dialect.MySQLDialect
 	</property>
@@ -57,5 +57,9 @@
 	<mapping resource="com/hut/domain/Lesson.hbm.xml" />
 	<mapping resource="com/hut/domain/Mid.hbm.xml" />
 	<mapping resource="com/hut/domain/Kccj.hbm.xml" />
+	<mapping resource="com/hut/domain/Yjdw.hbm.xml" />
+	<mapping resource="com/hut/domain/Dqjg.hbm.xml" />
+	<mapping resource="com/hut/domain/Xzjg.hbm.xml" />
+	<mapping resource="com/hut/domain/Shjg.hbm.xml" />
 </session-factory>
 </hibernate-configuration>

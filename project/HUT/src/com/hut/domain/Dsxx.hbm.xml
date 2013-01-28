@@ -146,6 +146,93 @@
   		<comment>专业代码</comment>
   	</column>
   </property>
+  
+  <property name="bgdh" lazy="false" generated="never">
+  	<column name="bgdh">
+  		<comment>办公电话</comment>
+  	</column>
+  </property>
+  <property name="csny" lazy="false" generated="never">
+  	<column name="csny">
+  		<comment>出生年月</comment>
+  	</column>
+  </property>
+  <property name="czdh" lazy="false" generated="never">
+  	<column name="czdh">
+  		<comment>传真电话</comment>
+  	</column>
+  </property>
+  <property name="dwdm" lazy="false" generated="never">
+  	<column name="dwdm">
+  		<comment>单位名称</comment>
+  	</column>
+  </property>
+  <property name="xm" lazy="false" generated="never">
+  	<column name="xm">
+  		<comment>姓名</comment>
+  	</column>
+  </property>
+  <property name="xb" lazy="false" generated="never">
+  	<column name="xb">
+  		<comment>性别</comment>
+  	</column>
+  </property>
+  <property name="sfzhm" lazy="false" generated="never">
+  	<column name="sfzhm">
+  		<comment>身份证号码</comment>
+  	</column>
+  </property>
+  <property name="zzmm" lazy="false" generated="never">
+  	<column name="zzmm">
+  		<comment>政治面貌</comment>
+  	</column>
+  </property>
+  <property name="szbm" lazy="false" generated="never">
+  	<column name="szbm">
+  		<comment>所在部门</comment>
+  	</column>
+  </property>
+  <property name="xzzw" lazy="false" generated="never">
+  	<column name="xzzw">
+  		<comment>行政职务</comment>
+  	</column>
+  </property>
+  <property name="txdz" lazy="false" generated="never">
+  	<column name="txdz">
+  		<comment>通讯地址</comment>
+  	</column>
+  </property>
+  
+  <property name="yzbm" lazy="false" generated="never">
+  	<column name="yzbm">
+  		<comment>邮政编码</comment>
+  	</column>
+  </property>
+  <property name="zzdh" lazy="false" generated="never">
+  	<column name="zzdh">
+  		<comment>住宅电话</comment>
+  	</column>
+  </property>
+  <property name="yddh" lazy="false" generated="never">
+  	<column name="yddh">
+  		<comment>移动电话</comment>
+  	</column>
+  </property>
+  <property name="dzxx" lazy="false" generated="never">
+  	<column name="dzxx">
+  		<comment>电子信箱</comment>
+  	</column>
+  </property>
+  <property name="mz" lazy="false" generated="never">
+  	<column name="mz">
+  		<comment>民族</comment>
+  	</column>
+  </property>
+    <property name="xnxw" lazy="false" generated="never">
+  	<column name="xnxw">
+  		<comment>在编或外聘</comment>
+  	</column>
+  </property>
  </class>
 </hibernate-mapping>
 
