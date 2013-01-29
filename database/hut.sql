@@ -1,6 +1,6 @@
-﻿/*==============================================================*/
+/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/15 17:23:52                           */
+/* Created on:     2013/1/29 13:11:18                           */
 /*==============================================================*/
 
 
@@ -122,6 +122,8 @@ drop table if exists t_xzjgz;
 
 drop table if exists t_xzqhsx;
 
+drop table if exists t_yjdw;
+
 drop table if exists t_yzbm;
 
 drop table if exists t_yzbzzy;
@@ -221,9 +223,9 @@ create table t_dsxx
    yjfx                 varchar(100) comment '研究方向',
    zgxl                 int comment '最高学历 1.本科 2.研究生 3.其他',
    zgxlsj               varchar(10) comment '获得最高学历时间',
-   zgxw                 int comment '最高学位 1.博士 2.硕士 3.学士 4.无',
+   zgxw                 varchar(5) comment '最高学位 1.博士 2.硕士 3.学士 4.无',
    zgxwsj               varchar(10) comment '获得最高学位时间',
-   zyjszw               int comment '专业技术职务 1.正高职       2.副高职        3.中级   ',
+   zyjszw               varchar(5) comment '专业技术职务 1.正高职       2.副高职        3.中级   ',
    dslb                 int comment '导师类别 1.博士生导师   2. 硕士生导师   9. 其他',
    scrsdsj              varchar(10) comment '首次任硕导时间',
    scrbdsj              varchar(10) comment '首次任博导时间',
@@ -233,6 +235,23 @@ create table t_dsxx
    wyslcd               int comment '外语熟练程度 1.精通      2.熟练      3.良好      4.一般',
    jzbsds               int comment '是否在外单位担任兼职博士指导教师 1是 0否',
    jzdwmc               varchar(50) comment '兼职单位名称',
+   bgdh                 varchar(20) comment '办公电话',
+   csny                 varchar(20) comment '出生年月',
+   czdh                 varchar(20) comment '传真电话',
+   dwdm                 varchar(10) comment '单位代码',
+   xm                   varchar(20) comment '姓名',
+   xb                   int comment '性别',
+   sfzhm                varchar(20) comment '身份证号码',
+   zzmm                 varchar(20) comment '政治面貌',
+   szbm                 varchar(20) comment '所在部门',
+   xzzw                 varchar(20) comment '行政职务',
+   txdz                 varchar(50) comment '通讯地址',
+   yzbm                 varchar(20) comment '邮政编码',
+   zzdh                 varchar(20) comment '住宅电话',
+   yddh                 varchar(20) comment '移动电话',
+   dzxx                 varchar(20) comment '电子信箱',
+   mz                   varchar(5) comment '民族',
+   xnxw                 int comment '在编或外聘',
    primary key (lsbh)
 );
 
@@ -1249,6 +1268,18 @@ create table t_xzqhsx
 alter table t_xzqhsx comment '行政区划(省市)表';
 
 /*==============================================================*/
+/* Table: t_yjdw                                                */
+/*==============================================================*/
+create table t_yjdw
+(
+   dwdm                 varchar(10) not null comment '单位代码',
+   dwmc                 varchar(50) comment '单位名称',
+   primary key (dwdm)
+);
+
+alter table t_yjdw comment '导师信息里面的单位代码的来源';
+
+/*==============================================================*/
 /* Table: t_yzbm                                                */
 /*==============================================================*/
 create table t_yzbm
@@ -1407,6 +1438,12 @@ alter table t_dsxx add constraint FK_dsxx_dexkejxkm_yzbzzy_zydm foreign key (dex
 
 alter table t_dsxx add constraint FK_dsxx_dexkyjxkm_yzbzzy_zydm foreign key (dexkyjxkm)
       references t_yzbzzy (zydm) on delete restrict on update restrict;
+
+alter table t_dsxx add constraint FK_dsxx_dwdm_yjdw_dwdm foreign key (dwdm)
+      references t_yjdw (dwdm) on delete restrict on update restrict;
+
+alter table t_dsxx add constraint FK_dsxx_mz_mz_dm foreign key (mz)
+      references t_mz (dm) on delete restrict on update restrict;
 
 alter table t_dsxx add constraint FK_dsxx_zjlbdm_zjlb_dm foreign key (zjlbdm)
       references t_zjlb (dm) on delete restrict on update restrict;
