@@ -1,12 +1,14 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/29 13:11:18                           */
+/* Created on:     2013/2/4 11:30:35                            */
 /*==============================================================*/
 
 
 drop table if exists t_cbxszzqk;
 
 drop table if exists t_class;
+
+drop table if exists t_class_lesson;
 
 drop table if exists t_dqjg;
 
@@ -40,6 +42,8 @@ drop table if exists t_kyxm;
 
 drop table if exists t_lesson;
 
+drop table if exists t_lesson_jsxx;
+
 drop table if exists t_lslb;
 
 drop table if exists t_lslxxx;
@@ -67,6 +71,8 @@ drop table if exists t_role_module;
 drop table if exists t_shjg;
 
 drop table if exists t_teacher;
+
+drop table if exists t_teacher_lesson;
 
 drop table if exists t_tjxx;
 
@@ -176,6 +182,19 @@ create table t_class
 );
 
 alter table t_class comment '班级表';
+
+/*==============================================================*/
+/* Table: t_class_lesson                                        */
+/*==============================================================*/
+create table t_class_lesson
+(
+   id                   int not null auto_increment,
+   classId              int comment '班级代码',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_class_lesson comment '班级课程表(××班级上××门课)';
 
 /*==============================================================*/
 /* Table: t_dqjg                                                */
@@ -469,6 +488,19 @@ create table t_lesson
 alter table t_lesson comment '课程信息表';
 
 /*==============================================================*/
+/* Table: t_lesson_jsxx                                         */
+/*==============================================================*/
+create table t_lesson_jsxx
+(
+   id                   int not null auto_increment,
+   jsxxId               int comment '教室信息Id',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_lesson_jsxx comment '课程教室信息表（××课程能在×××教室等上课）';
+
+/*==============================================================*/
 /* Table: t_lslb                                                */
 /*==============================================================*/
 create table t_lslb
@@ -735,6 +767,19 @@ create table t_teacher
 );
 
 alter table t_teacher comment '老师基本信息表';
+
+/*==============================================================*/
+/* Table: t_teacher_lesson                                      */
+/*==============================================================*/
+create table t_teacher_lesson
+(
+   id                   int not null auto_increment,
+   lsbh                 varchar(20) comment '老师编号',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_teacher_lesson comment '老师课程表（××老师能上××课程）';
 
 /*==============================================================*/
 /* Table: t_tjxx                                                */
@@ -1430,6 +1475,12 @@ alter table zjlx comment '证件类型表';
 alter table t_cbxszzqk add constraint FK_cbxszzqk_lsbh_teacher_lsbh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
 
+alter table t_class_lesson add constraint FK_class_lesson_classId_class_classId foreign key (classId)
+      references t_class (classId) on delete restrict on update restrict;
+
+alter table t_class_lesson add constraint FK_class_lesson_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
+
 alter table t_dqjgz add constraint FK_dqjgz_pdm_dqjg_dm foreign key (pdm)
       references t_dqjg (dm) on delete restrict on update restrict;
 
@@ -1490,6 +1541,12 @@ alter table t_kccj add constraint FK_kccj_zgh_teacher_zgh foreign key (lsbh)
 alter table t_kyxm add constraint FK_kyxm_zgh_teacher_zgh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
 
+alter table t_lesson_jsxx add constraint FK_lesson_jsxx_jsxxId_jsxx_id foreign key (jsxxId)
+      references t_jsxx (id) on delete restrict on update restrict;
+
+alter table t_lesson_jsxx add constraint FK_lesson_jsxx_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
+
 alter table t_lslxxx add constraint FK_lslxxx_lsbh_teacher_lsbh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
 
@@ -1549,6 +1606,12 @@ alter table t_teacher add constraint FK_teacher_zydm_yzbzzy_zydm foreign key (zy
 
 alter table t_teacher add constraint FK_teacher_zzmmdm_zzmm_dm foreign key (zzmmdm)
       references t_zzmm (dm) on delete restrict on update restrict;
+
+alter table t_teacher_lesson add constraint FK_teacher_lesson_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
+
+alter table t_teacher_lesson add constraint FK_teacher_lesson_lsbh_teacher_lsbh foreign key (lsbh)
+      references t_teacher (lsbh) on delete restrict on update restrict;
 
 alter table t_tjxx add constraint FK_tjxx_ksh_zscj_ksh foreign key (ksh)
       references t_zscj (ksh) on delete restrict on update restrict;
