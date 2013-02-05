@@ -4,13 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Build Syllabus Demo</title>
 
- <link rel="stylesheet" type="text/css" href="../css/css/ext-all.css">
-    <script type="text/javascript" src="../script/ext-all.js"></script>
-	<script type="text/javascript" src="../script/jquery-1.7.1.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/css/ext-all.css">
+<script type="text/javascript" src="../script/ext-all.js"></script>
+<script type="text/javascript" src="../script/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="script/build.js"></script>
 	
 <link rel="stylesheet" type="text/css" href="./css/CheckHeader.css"/>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
 <script type="text/javascript" src="script/view.js"></script>
+<script type="text/javascript" src="script/change.js"></script>
 <style type="text/css">
 body { 
 margin:0;
@@ -65,49 +67,73 @@ float: left;
 </div>
 <div style="margin-left: 5px" id="table">
 </div>
-<div style="margin:5px">
-<table border="1" width="auto" height="200px" style="text-align: center;">
-    <thead>
-       <tr>
-        <th>时间</th>
-        <th>星期一</th>
-        <th>星期二</th>
-        <th>星期三</th>
-        <th>星期四</th>
-        <th>星期五</th>
-       </tr>
-    </thead>
+<div style="margin:5px;visibility: hidden;" class="tt">
+<table border="1" width="1200px" height="500px" style="text-align: center;">
+	
+    <tr><td rowspan="2">星期</td><td>节别</td><td>第一节</td><td>第二节</td><td>第三节</td><td>第四节</td><td>第五节</td><td>第六节</td><td>第七节</td><td>第八节</td><td>第九节</td><td>第十节</td></tr>
+    <tr><td>上课时间</td><td>8:00-8:45</td><td>8:55-9:40</td><td>10:00-10:45</td><td>10:55-11:40</td><td>14:00-14:45</td><td>14:55-15:40</td><td>16:00-16:45</td><td>16:55-17:40</td><td>19:30-20:15</td><td>20:25-21:10</td></tr>
     <tr class="1">
-      <td>1</td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
+      <td >一</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
     </tr>
     <tr class="2">
-      <td>2</td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
+      <td>二</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
     </tr>
     <tr class="3">
-      <td>3</td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
+      <td>三</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
     </tr>
     <tr class="4">
-      <td>4</td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
-      <td class='add'>                   </td>
+      <td>四</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+    </tr>
+    <tr class="5">
+      <td>五</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+    </tr>
+    <tr class="6">
+      <td>六</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+    </tr>
+    <tr class="7">
+      <td>七</td>
+      <td>课 程<br>教室教师</td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
+      <td colspan="2" class="data"></td>
     </tr>
 </table>
 </div>

@@ -126,7 +126,6 @@ Ext.onReady(function(){
 		Ext.Ajax.request({
 			url:'LessonAction!getLessonByLessonName',
 			params:{
-//			 kcmc:encodeURI(record.data.kcmc)
 			kcmc:record.data.kcmc
 			},
 			success: function(response){
@@ -195,6 +194,7 @@ Ext.onReady(function(){
                             ]
                       });
 				    }
+				   
 					win = Ext.create('Ext.window.Window',{
 							height: 344,
 						    width: 600,
@@ -278,36 +278,11 @@ Ext.onReady(function(){
 	    width:100,
 	    renderTo: 'Button',
 	    handler: function() {
-	    	Ext.Ajax.request({
-			    url: 'ClassAction!BuildClassTable',
-			    success: function(response){
-			        var text = response.responseText;
-			        var dataArray = $.parseJSON(text);
-			        $(".add").remove();
-			        for(var i = 0;i<dataArray.length;i++){
-			        	if(dataArray[i].one!=""){
-			        		$(".1").append("<td class='add'>"+dataArray[i].one+"</td>");
-			        	}else{
-			        		$(".1").append("<td class='add'>                   </td>");
-			        	}
-			        	if(dataArray[i].two!=""){
-			        		$(".2").append("<td class='add'>"+dataArray[i].two+"</td>");
-			        	}else{
-			        		$(".2").append("<td class='add'>                   </td>");
-			        	}
-			        	if(dataArray[i].three!=""){
-			        		$(".3").append("<td class='add'>"+dataArray[i].three+"</td>");
-			        	}else{
-			        		$(".3").append("<td class='add'>                   </td>");
-			        	}
-			        	if(dataArray[i].four!=""){
-			        		$(".4").append("<td class='add'>"+dataArray[i].four+"</td>");
-			        	}else{
-			        		$(".4").append("<td class='add'>                   </td>");
-			        	}
-			        }
-			    }
-			});
+	    	if($(".tt").css("visibility")=="hidden"){
+	    		$(".tt").css("visibility","visible");
+	    	}
+	    	build();
+	    	
 	    }
     });
     
