@@ -101,6 +101,7 @@
 
 	<bean id="ClassAction" class="com.hut.action.ClassAction" scope="prototype">
 		<property name="classService" ref="classService"></property>
+		<property name="midService" ref="midService"></property>
 	</bean>
 	
 	<bean id="LessonAction" class="com.hut.action.LessonAction" scope="prototype">

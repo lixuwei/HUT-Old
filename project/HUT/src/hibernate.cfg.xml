@@ -7,13 +7,13 @@
 
 	<property name="hibernate.connection.url">
 		<!-- jdbc:mysql://172.24.121.120:3306/hut?characterEncoding=UTF-8 -->
-		jdbc:mysql://localhost:3306/hut?characterEncoding=UTF-8
+		jdbc:mysql://localhost:3309/hut?characterEncoding=UTF-8
 	</property>
 	<property name="hibernate.connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
 	<property name="hibernate.connection.username">root</property>
-	<property name="hibernate.connection.password">mysql</property>
+	<property name="hibernate.connection.password">root</property>
 	<property name="hibernate.dialect">
 		org.hibernate.dialect.MySQLDialect
 	</property>
