@@ -1,12 +1,14 @@
-﻿/*==============================================================*/
+/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/1/15 17:23:52                           */
+/* Created on:     2013/2/4 11:30:35                            */
 /*==============================================================*/
 
 
 drop table if exists t_cbxszzqk;
 
 drop table if exists t_class;
+
+drop table if exists t_class_lesson;
 
 drop table if exists t_dqjg;
 
@@ -40,6 +42,8 @@ drop table if exists t_kyxm;
 
 drop table if exists t_lesson;
 
+drop table if exists t_lesson_jsxx;
+
 drop table if exists t_lslb;
 
 drop table if exists t_lslxxx;
@@ -67,6 +71,8 @@ drop table if exists t_role_module;
 drop table if exists t_shjg;
 
 drop table if exists t_teacher;
+
+drop table if exists t_teacher_lesson;
 
 drop table if exists t_tjxx;
 
@@ -122,6 +128,8 @@ drop table if exists t_xzjgz;
 
 drop table if exists t_xzqhsx;
 
+drop table if exists t_yjdw;
+
 drop table if exists t_yzbm;
 
 drop table if exists t_yzbzzy;
@@ -176,6 +184,19 @@ create table t_class
 alter table t_class comment '班级表';
 
 /*==============================================================*/
+/* Table: t_class_lesson                                        */
+/*==============================================================*/
+create table t_class_lesson
+(
+   id                   int not null auto_increment,
+   classId              int comment '班级代码',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_class_lesson comment '班级课程表(××班级上××门课)';
+
+/*==============================================================*/
 /* Table: t_dqjg                                                */
 /*==============================================================*/
 create table t_dqjg
@@ -221,9 +242,9 @@ create table t_dsxx
    yjfx                 varchar(100) comment '研究方向',
    zgxl                 int comment '最高学历 1.本科 2.研究生 3.其他',
    zgxlsj               varchar(10) comment '获得最高学历时间',
-   zgxw                 int comment '最高学位 1.博士 2.硕士 3.学士 4.无',
+   zgxw                 varchar(5) comment '最高学位 1.博士 2.硕士 3.学士 4.无',
    zgxwsj               varchar(10) comment '获得最高学位时间',
-   zyjszw               int comment '专业技术职务 1.正高职       2.副高职        3.中级   ',
+   zyjszw               varchar(5) comment '专业技术职务 1.正高职       2.副高职        3.中级   ',
    dslb                 int comment '导师类别 1.博士生导师   2. 硕士生导师   9. 其他',
    scrsdsj              varchar(10) comment '首次任硕导时间',
    scrbdsj              varchar(10) comment '首次任博导时间',
@@ -233,6 +254,23 @@ create table t_dsxx
    wyslcd               int comment '外语熟练程度 1.精通      2.熟练      3.良好      4.一般',
    jzbsds               int comment '是否在外单位担任兼职博士指导教师 1是 0否',
    jzdwmc               varchar(50) comment '兼职单位名称',
+   bgdh                 varchar(20) comment '办公电话',
+   csny                 varchar(20) comment '出生年月',
+   czdh                 varchar(20) comment '传真电话',
+   dwdm                 varchar(10) comment '单位代码',
+   xm                   varchar(20) comment '姓名',
+   xb                   int comment '性别',
+   sfzhm                varchar(20) comment '身份证号码',
+   zzmm                 varchar(20) comment '政治面貌',
+   szbm                 varchar(20) comment '所在部门',
+   xzzw                 varchar(20) comment '行政职务',
+   txdz                 varchar(50) comment '通讯地址',
+   yzbm                 varchar(20) comment '邮政编码',
+   zzdh                 varchar(20) comment '住宅电话',
+   yddh                 varchar(20) comment '移动电话',
+   dzxx                 varchar(20) comment '电子信箱',
+   mz                   varchar(5) comment '民族',
+   xnxw                 int comment '在编或外聘',
    primary key (lsbh)
 );
 
@@ -448,6 +486,19 @@ create table t_lesson
 );
 
 alter table t_lesson comment '课程信息表';
+
+/*==============================================================*/
+/* Table: t_lesson_jsxx                                         */
+/*==============================================================*/
+create table t_lesson_jsxx
+(
+   id                   int not null auto_increment,
+   jsxxId               int comment '教室信息Id',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_lesson_jsxx comment '课程教室信息表（××课程能在×××教室等上课）';
 
 /*==============================================================*/
 /* Table: t_lslb                                                */
@@ -716,6 +767,19 @@ create table t_teacher
 );
 
 alter table t_teacher comment '老师基本信息表';
+
+/*==============================================================*/
+/* Table: t_teacher_lesson                                      */
+/*==============================================================*/
+create table t_teacher_lesson
+(
+   id                   int not null auto_increment,
+   lsbh                 varchar(20) comment '老师编号',
+   kcdm                 int comment '课程代码',
+   primary key (id)
+);
+
+alter table t_teacher_lesson comment '老师课程表（××老师能上××课程）';
 
 /*==============================================================*/
 /* Table: t_tjxx                                                */
@@ -1249,6 +1313,18 @@ create table t_xzqhsx
 alter table t_xzqhsx comment '行政区划(省市)表';
 
 /*==============================================================*/
+/* Table: t_yjdw                                                */
+/*==============================================================*/
+create table t_yjdw
+(
+   dwdm                 varchar(10) not null comment '单位代码',
+   dwmc                 varchar(50) comment '单位名称',
+   primary key (dwdm)
+);
+
+alter table t_yjdw comment '导师信息里面的单位代码的来源';
+
+/*==============================================================*/
 /* Table: t_yzbm                                                */
 /*==============================================================*/
 create table t_yzbm
@@ -1399,6 +1475,12 @@ alter table zjlx comment '证件类型表';
 alter table t_cbxszzqk add constraint FK_cbxszzqk_lsbh_teacher_lsbh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
 
+alter table t_class_lesson add constraint FK_class_lesson_classId_class_classId foreign key (classId)
+      references t_class (classId) on delete restrict on update restrict;
+
+alter table t_class_lesson add constraint FK_class_lesson_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
+
 alter table t_dqjgz add constraint FK_dqjgz_pdm_dqjg_dm foreign key (pdm)
       references t_dqjg (dm) on delete restrict on update restrict;
 
@@ -1407,6 +1489,12 @@ alter table t_dsxx add constraint FK_dsxx_dexkejxkm_yzbzzy_zydm foreign key (dex
 
 alter table t_dsxx add constraint FK_dsxx_dexkyjxkm_yzbzzy_zydm foreign key (dexkyjxkm)
       references t_yzbzzy (zydm) on delete restrict on update restrict;
+
+alter table t_dsxx add constraint FK_dsxx_dwdm_yjdw_dwdm foreign key (dwdm)
+      references t_yjdw (dwdm) on delete restrict on update restrict;
+
+alter table t_dsxx add constraint FK_dsxx_mz_mz_dm foreign key (mz)
+      references t_mz (dm) on delete restrict on update restrict;
 
 alter table t_dsxx add constraint FK_dsxx_zjlbdm_zjlb_dm foreign key (zjlbdm)
       references t_zjlb (dm) on delete restrict on update restrict;
@@ -1452,6 +1540,12 @@ alter table t_kccj add constraint FK_kccj_zgh_teacher_zgh foreign key (lsbh)
 
 alter table t_kyxm add constraint FK_kyxm_zgh_teacher_zgh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
+
+alter table t_lesson_jsxx add constraint FK_lesson_jsxx_jsxxId_jsxx_id foreign key (jsxxId)
+      references t_jsxx (id) on delete restrict on update restrict;
+
+alter table t_lesson_jsxx add constraint FK_lesson_jsxx_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
 
 alter table t_lslxxx add constraint FK_lslxxx_lsbh_teacher_lsbh foreign key (lsbh)
       references t_teacher (lsbh) on delete restrict on update restrict;
@@ -1512,6 +1606,12 @@ alter table t_teacher add constraint FK_teacher_zydm_yzbzzy_zydm foreign key (zy
 
 alter table t_teacher add constraint FK_teacher_zzmmdm_zzmm_dm foreign key (zzmmdm)
       references t_zzmm (dm) on delete restrict on update restrict;
+
+alter table t_teacher_lesson add constraint FK_teacher_lesson_kcdm_lesson_kcdm foreign key (kcdm)
+      references t_lesson (kcdm) on delete restrict on update restrict;
+
+alter table t_teacher_lesson add constraint FK_teacher_lesson_lsbh_teacher_lsbh foreign key (lsbh)
+      references t_teacher (lsbh) on delete restrict on update restrict;
 
 alter table t_tjxx add constraint FK_tjxx_ksh_zscj_ksh foreign key (ksh)
       references t_zscj (ksh) on delete restrict on update restrict;
